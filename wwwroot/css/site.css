@@ -1,0 +1,551 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* DEFAULTS
+----------------------------------------------------------*/
+
+@font-face {
+  font-family: conduit-itc-w01;
+  src: url(../fonts/conduit-itc-light-italic-58be763822c34.ttf);
+}
+
+body   
+{
+  /*background: #b6b7bc; */
+  font-size: 17px;
+  font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  color: #292929;
+}
+
+a:link, a:visited
+{
+  color: #034af3;
+}
+
+a:hover
+{
+  color: #1d60ff;
+  text-decoration: none;
+}
+
+a:active
+{
+  color: #034af3;
+}
+
+p
+{
+  margin-bottom: 10px;
+  line-height: 1.6em;
+font-size: 17px;
+font-family: "arial",serif;
+}
+
+.b
+{
+font-family: "conduit-itc-w01",serif;
+font-size: 30px;
+font-style: italic;
+margin-bottom: 5px;
+}
+
+b, strong
+{
+font-family: "conduit-itc-w01",serif;
+font-size: 30px;
+font-weight: 600;
+font-style: italic;
+margin-bottom: 5px;
+}
+
+#ctl00_MainContent_Label1 strong
+{
+  font-family: arial, serif;
+font-size: 17px;
+  font-weight: 600;
+font-style: normal;
+margin-bottom: 0px;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+font-family: "conduit-itc-w01",serif;
+  font-size: 1.5em;
+  color: #292929;
+  font-variant: small-caps;
+  text-transform: none;
+  font-weight: 200;
+  margin-bottom: 0px;
+}
+
+h1
+{
+  font-size: 1.6em;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+h2
+{
+  font-size: 50px;
+  font-weight: 100;
+font-family: "conduit-itc-w01",serif;
+font-variant: normal;
+}
+
+h3
+{
+  font-size: 1.2em;
+}
+
+h4
+{
+  font-size: 1.1em;
+}
+
+h5, h6
+{
+  font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+  margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+  width: 960px;
+  background-color: #fff;
+  margin: 20px auto 0px auto;
+  /*border: 1px solid #496077; */
+}
+
+@media screen and (max-width: 768px) {
+body {
+  min-height: 1240px;
+}
+}
+
+@media (max-width: 960px)
+{
+.page 
+{
+  width: 900px;
+}
+}
+
+@media (max-width: 900px)
+{
+.page 
+{
+  width: 800px;
+}
+}
+
+@media (max-width: 850px)
+{
+.page 
+{
+  width: 800px;
+}
+}
+
+@media (max-width: 800px)
+{
+.page 
+{
+  width: 750px;
+}
+}
+
+@media (max-width: 600px)
+{
+.page 
+{
+  width: 700px;
+}
+}
+
+@media (max-width: 500px)
+{
+.page 
+{
+  width: 650px;
+}
+}
+
+@media (max-width: 400px)
+{
+.page 
+{
+  width: 600px;
+}
+}
+
+@media (max-width: 300px)
+{
+.page 
+{
+  width: 530px;
+}
+}
+
+@media (max-width: 260px)
+{
+.page 
+{
+  width: 430px;
+}
+}
+
+@media (max-width: 200px)
+{
+.page 
+{
+  width: 400px;
+}
+}
+
+@media (max-width: 199px)
+{
+.page 
+{
+  width: 400px;
+}
+}
+
+.header
+{
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  background: #4b6c9e;
+  width: 100%;
+}
+
+.header h1
+{
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+  color: #f9f9f9;
+  border: none;
+  line-height: 2em;
+  font-size: 2em;
+}
+
+.main
+{
+  padding: 0px 12px;
+  margin: 12px 8px 8px 8px;
+  min-height: 420px;
+  text-align:left;
+  width: auto;
+  position: relative;
+  top: 100px;
+font-family: "arial",serif;
+}
+
+.leftCol
+{
+  padding: 6px 0px;
+  margin: 12px 8px 8px 8px;
+  width: 200px;
+  min-height: 200px;
+}
+
+.footer
+{
+  color: #4e5766;
+  padding: 8px 0px 0px 0px;
+  margin: 0px auto;
+  text-align: center;
+  line-height: normal;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+div.hideSkiplink
+{
+  background-color:#3a4f63;
+  width:100%;
+}
+
+div.menu
+{
+  padding: 4px 0px 4px 8px;
+}
+
+div.menu ul
+{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+  background-color: #465c71;
+  border: 1px #4e667d solid;
+  color: #dde4ec;
+  display: block;
+  line-height: 1.35em;
+  padding: 4px 20px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+  background-color: #bfcbd6;
+  color: #465c71;
+  text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+  background-color: #465c71;
+  color: #cfdbe6;
+  text-decoration: none;
+}
+
+
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+  margin: 1em 0px;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+  margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+  display: block;
+}
+
+fieldset label.inline 
+{
+  display: inline;
+}
+
+legend 
+{
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+  width: 320px;
+  border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+  width: 320px;
+  border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+  width: 42%;
+}
+
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+  clear: both;
+}
+
+.title
+{
+  display: block;
+  float: left;
+  text-align: left;
+  width: auto;
+}
+
+.loginDisplay
+{
+  font-size: 1.1em;
+  display: block;
+  text-align: right;
+  padding: 10px;
+  color: White;
+}
+
+.loginDisplay a:link
+{
+  color: white;
+}
+
+.loginDisplay a:visited
+{
+  color: white;
+}
+
+.loginDisplay a:hover
+{
+  color: white;
+}
+
+.failureNotification
+{
+  font-size: 1.2em;
+  color: Red;
+}
+
+.bold
+{
+  font-weight: bold;
+}
+
+.submitButton
+{
+  text-align: right;
+  padding-right: 10px;
+}
+.text
+{
+float:left;    
+}
+#RadioButton1
+{
+  float: left
+}
+
+  #RadioButton2
+{
+  float: left
+}
+  
+  #RadioButton3
+{
+  float: left
+}
+  
+.graf
+{
+height: 300px;
+  border-width: 0px;
+  border: 1px solid black;
+  width: auto;
+}
+
+#ctl00_MainContent_Button1
+{
+  background-color: #aa198d;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: Arial,sans-serif;
+  color: #fff;
+  font-weight: bold;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: left;
+  font-size: 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+transition: all .3s ease-in-out, background-color .3s;
+-webkit-transition: all .3s ease-in-out, background-color .3s;
+  position: relative;
+}
+
+#ctl00_MainContent_Button1:hover
+{
+  background-color: #8eb73c;
+  border-radius: 5px;
+transform: scale(1.05);
+}
+
+.break {
+  display: none;
+}
+
+/* Specifikke elementer mobil
+----------------------------------------------------------*/
+@media (max-width: 600px)
+{
+#ctl00_MainContent_Button1
+{
+width: 100% !important;
+font-size: 1.3em;
+}
+
+label {
+font-size: 25.5px;
+}
+
+p {
+font-size: 1.5em;
+}
+
+b {
+font-size: 2em;
+}
+
+input[type=radio] {
+float: left;
+  border: 0px;
+  width: 8%;
+  height: 6em;
+  margin: 0;
+  margin-top: -2em;
+  margin-right: 1em;
+
+}
+
+.break {
+  display: block;
+}
+
+img {
+  height: auto !important;
+  width: 100% !important;
+  margin-bottom: 1em;
+}
+}

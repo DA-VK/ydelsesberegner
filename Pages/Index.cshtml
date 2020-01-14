@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Civilstand";
+}
+
+<div class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">Er du gift?</h2>
+
+        @*
+        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
+            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
+        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
+        <br class="break" />
+        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
+         *@
+        
+    
+
+       
+    <form method="post">
+        @foreach (var civilstand in Model.Civilstande)
+        {
+            <input type="radio" asp-for="Civilstand" value="@civilstand" /> @civilstand<br />
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>
+    @if (!string.IsNullOrEmpty(Model.Civilstand))
+    {
+        <br/>
+        <br/>
+        <p>Du er @Model.Civilstand!</p>
+    }
+       
+        @*        <%-- Laver knap til at navigere videre. Definerer ID, Text og OnClick attributterne.
+            "OnClick" affyres når der bliver trykket på knappen og kalder på koden i "Default.aspx.cs" som definerer hvad der sker --%>
+        <asp:Button ID="Button1" runat="server" Text="Næste" OnClick="Button1_Click" />
+
+        *@
+</div>
