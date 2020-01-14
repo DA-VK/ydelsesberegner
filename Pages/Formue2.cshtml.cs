@@ -9,6 +9,11 @@ namespace Ydelsesberegner.Pages
 {
     public class Formue2Model : PageModel
     {
+        [BindProperty]
+         public string Formue { get; set; }
+
+         public string[] Formue2Svar = new[] { "Ja", "Nej" };
+
         public void OnGet()
         {
         }

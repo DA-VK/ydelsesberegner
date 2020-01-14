@@ -1,4 +1,48 @@
 ﻿@page
 @model Ydelsesberegner.Pages.Formue2Model
 @{
+    ViewData["Title"] = "Formue";
 }
+
+<div class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">Har du en formue på over 10.000 kroner?</h2>
+
+        @*
+        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
+            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
+        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
+        <br class="break" />
+        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
+         *@
+        
+    
+
+       
+    <form method="post">
+        @foreach (var svar in Model.Formue2Svar)
+        {
+            <input type="radio" asp-for="Formue" value="@svar" /> @svar<br />
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>
+    
+       
+        
+    <p>
+            <br/> <br/>
+            <b>Definition af formue:</b>
+            <br/> <br/>
+            Du kan ikke få hjælp til forsørgelse, hvis du som enlig har formue på mere end 10.000 kr.
+            <br/> 
+            Begrebet formue dækker over kontantbeholdning, værdier som kan omsættes til penge, og i nogle tilfælde bil, sommerhus og friværdi i egen bolig.
+            <br/> <br/>
+            Der kan dog ses bort fra en del af formuen, hvis denne vurderes nødvendig af hensyn til din og evt. din families boligstandard eller erhvervs- og uddannelsesmuligheder.  
+            <br/> <br/>
+
+
+    </p>
+ 
+</div>
+

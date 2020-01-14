@@ -38,7 +38,7 @@ namespace Ydelsesberegner.Pages
             if(Civilstand == "Gift"){
                 Response.Redirect("Formue1");
                 
-            }else{
+            }else if(Civilstand == "Ugift"){
                 Response.Redirect("Formue2");
             }
         }
