@@ -36,7 +36,10 @@ namespace Ydelsesberegner.Pages
     public void OnPost()
         {
             if(Civilstand == "Gift"){
-                Response.Redirect("Error");
+                Response.Redirect("Formue1");
+                
+            }else{
+                Response.Redirect("Formue2");
             }
         }
     }
