@@ -1,4 +1,62 @@
 ﻿@page
 @model Ydelsesberegner.Pages.OpholdModel
 @{
+    ViewData["Title"] = "Ophold";
 }
+
+<div class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">OPHOLDSKRAVET</h2>
+   <p><br />
+        Har du haft ophold i Danmark, Færøerne eller Grønland i sammenlagt 7 år ud af de seneste 8 år?
+        <br /><br />
+    </p>
+
+        @*
+        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
+            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
+        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
+        <br class="break" />
+        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
+         *@
+        
+    
+
+       
+    <form method="post">
+        @foreach (var svar in Model.OpholdSvar)
+        {
+            <input type="radio" asp-for="Ophold" value="@svar" /> @svar<br />
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>
+    
+       
+        
+    <p>
+        <br/> <br/>
+        <strong>Bemærkninger:</strong><br />
+        Ved opgørelsen af sammenlagt 7 års ophold inden for de seneste 8 år ligestilles ophold i udlandet i perioder på<br />
+        sammenlagt højst 2 måneder pr. kalenderår i forbindelse med ferie, studierejseforretningsrejse m.v. med ophold her i riget, hvis ansøgeren har beholdt sin bopæl her i riget.
+        <br /> <br />
+        Ophold i udlandet på militær mission for den danske stat under instruktion af forsvaret ligestilles med ophold her i riget. 
+        Det samme gælder ophold i udlandet, hvor ansøgeren af den danske stat er stillet til rådighed for militær mission under<br />
+        instruktion af udenlandsk eller international myndighed.<br /><br />
+ 
+        <strong>Særligt vedr. EU / EØS borgere</strong><br />
+        Opholdskravet gælder ikke for EU/EØS borgere, såfremt de har arbejdstagerstatus og dermed ville være berettiget til kontant- eller uddannelseshjælp.<br />
+        Bevis for registrering som arbejdstager udstedes af Statsforvaltningen under forudsætning af, at EU/EØS-borgeren har lønnet beskæftigelse her i riget.<br />
+        Hvis EU/EØS-borgeren mister sit arbejde, vurderer Statsforvaltningen, om EU/EØS-borgeren fortsat bevarer status som arbejdstager.<br /><br />
+ 
+        <strong>Opholdskravet gælder også for danske statsborgere</strong><br />
+        En dansk statsborger har arbejdet i et år eller mere i et andet EU/EØS land. Når han kommer hjem, er han arbejdsløs
+        og søger forsørgelseshjælp. Han opfylder ikke opholdskravet, da han ikke har opnået status som arbejdstager i
+        Danmark. Han vil derfor få integrationsydelse.<br />
+        Har samme person haft fx. fuldtidsarbejde i ca. 12 uger efter hjemkomsten, og derefter bliver arbejdsløs,
+        vil han kunne få kontant- eller uddannelseshjælp. <br />
+        Studier i udlandet giver ikke arbejdstagerstatus.
+
+    </p>
+ 
+</div>

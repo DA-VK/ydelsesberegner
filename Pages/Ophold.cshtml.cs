@@ -9,8 +9,23 @@ namespace Ydelsesberegner.Pages
 {
     public class OpholdModel : PageModel
     {
+        [BindProperty]
+         public string Ophold { get; set; }
+
+         public string[] OpholdSvar = new[] { "Ja", "Nej" };
+        
         public void OnGet()
         {
+        }
+
+        public void OnPost()
+        {
+            if(Ophold == "Ja"){
+                Response.Redirect("Uddannelse");
+                
+            }else if(Ophold == "Nej"){
+                Response.Redirect("EUBorgerskab");
+            }
         }
     }
 }

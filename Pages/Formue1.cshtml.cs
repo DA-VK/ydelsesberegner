@@ -18,5 +18,15 @@ namespace Ydelsesberegner.Pages
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+            if(Formue == "Ja"){
+                Response.Redirect("Resultat");
+                
+            }else if(Formue == "Nej"){
+                Response.Redirect("Ophold");
+            }
+        }
     }
 }
