@@ -21,12 +21,28 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "NejNejJa"){       //Ikke EU-borger eller ophold
+            if(Status == "NejNejJa"){       //Integrationsydelse
                 if(ChildrenExt == "Ja"){
                     Response.Redirect("Resultat" + "?Name=NejNejJaJa");
                     
                 }else if(ChildrenExt == "Nej"){
                     Response.Redirect("Resultat" + "?Name=NejNejJaNej");
+                }
+            }
+            if(Status == "JaJaUnderJa"){       //Uddannelsesydelse
+                if(ChildrenExt == "Ja"){
+                    Response.Redirect("Resultat" + "?Name=I");
+                    
+                }else if(ChildrenExt == "Nej"){
+                    Response.Redirect("Resultat" + "?Name=K");
+                }
+            }
+            if(Status == "JaNejUnderJa"){       //Kontanthjælp
+                if(ChildrenExt == "Ja"){
+                    Response.Redirect("Resultat" + "?Name=C");
+                    
+                }else if(ChildrenExt == "Nej"){
+                    Response.Redirect("Resultat" + "?Name=D");
                 }
             }
         }

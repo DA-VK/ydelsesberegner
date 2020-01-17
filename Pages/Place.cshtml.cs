@@ -29,6 +29,25 @@ namespace Ydelsesberegner.Pages
                     Response.Redirect("Resultat" + "?Name=NejNejNejUnderHjemme");
                 }
             }
+            else if(Status == "JaJaUnderNej"){          //Uddannelsesydelse under 30
+                if(Place == "Jeg er udeboende"){
+                    Response.Redirect("Resultat" + "?Name=G");
+                    
+                }else if(Place == "Jeg er hjemmeboende"){
+                    Response.Redirect("Resultat" + "?Name=H");
+                }
+            }
+            else if(Status == "JaNejUnderNej"){          //Kontanthjælp
+                if(Place == "Jeg er udeboende"){
+                    Response.Redirect("Resultat" + "?Name=E");
+                    
+                }else if(Place == "Jeg er hjemmeboende"){
+                    Response.Redirect("Resultat" + "?Name=F");
+                }
+            }
+            else{
+
+            }
         }
     }
 }

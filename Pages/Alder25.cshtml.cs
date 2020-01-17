@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
+
+//Denne bliver pt ikke kaldt, da resultatet uanset bliver det samme
+//Måske er den et levn fra tidligere?
+
+
 namespace Ydelsesberegner.Pages
 {
     public class Alder25Model : PageModel

@@ -34,7 +34,7 @@ namespace Ydelsesberegner.Pages
                     //Response.Redirect();
                 }
             }
-            else if(Status == "NejNej"){ //Ikke EU-borger eller ophold
+            else if(Status == "NejNej"){ //Integrationsydelse
 
                 if(Children1 == "Ja"){
                     Response.Redirect("ChildrenExt" + "?Name=NejNejJa");
@@ -43,31 +43,22 @@ namespace Ydelsesberegner.Pages
                     Response.Redirect("Alder30" + "?Name=NejNejNej");
                 }
             }
-            else if(Status == "Nej"){
+            else if(Status == "JaJaUnder"){ //Uddannelsesydelse
 
                 if(Children1 == "Ja"){
-                    //Response.Redirect();
+                    Response.Redirect("ChildrenExt" + "?Name=JaJaUnderJa");
                     
                 }else if(Children1 == "Nej"){
-                    //Response.Redirect();
+                    Response.Redirect("Place" + "?Name=JaJaUnderNej");
                 }
             }
-            else if(Status == "Nej"){
+            else if(Status == "JaNejUnder"){ //Kontanthjælp
 
                 if(Children1 == "Ja"){
-                    //Response.Redirect();
+                    Response.Redirect("ChildrenExt" + "JaNejUnderJa");
                     
                 }else if(Children1 == "Nej"){
-                    //Response.Redirect();
-                }
-            }
-            else if(Status == "Nej"){
-
-                if(Children1 == "Ja"){
-                    //Response.Redirect();
-                    
-                }else if(Children1 == "Nej"){
-                    //Response.Redirect();
+                    Response.Redirect("Place" + "JaNejUnderNej");
                 }
             }
             else{
