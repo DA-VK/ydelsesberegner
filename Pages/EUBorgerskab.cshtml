@@ -6,19 +6,9 @@
 
 <div id="2" class="text-left">
    <br/><br/><br/>
-   <h2 class="display-4">Er du enlig forsøger med ret til ekstra børnetilskud og forskudsudbetaling af børnebidrag?</h2>
+   <h2 class="display-4">Er du EU borger med arbejdstagerstatus i Danmark?</h2>
 
-        @*
-        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
-            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
-        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
-        <br class="break" />
-        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
-         *@
-        
-    
-
-       
+           
     <form method="post">
         @foreach (var svar in Model.EUBorgerskabSvar)
         {

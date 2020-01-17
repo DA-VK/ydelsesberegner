@@ -1,4 +1,25 @@
 ﻿@page
 @model Ydelsesberegner.Pages.PlaceModel
 @{
+    ViewData["Title"] = "Bopæl";
 }
+
+<div class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">Er du udeboende eller hjemmeboende?</h2>
+
+       
+
+       
+    <form method="post">
+        @foreach (var svar in Model.PlaceSvar)
+        {
+            <input type="radio" asp-for="Place" value="@svar" /> @svar<br />
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>
+    
+     
+ 
+</div>

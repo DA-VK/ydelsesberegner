@@ -19,11 +19,15 @@ namespace Ydelsesberegner.Pages
 
         public void OnPost()
         {
-            if(Alder30 == "Over 30 år"){
-                //Response.Redirect();
-                
-            }else if(Alder30 == "Under 30 år"){
-                //Response.Redirect();
+            String Status = Request.Query["Name"];
+
+            if(Status == "NejNejNej"){          //Integrationsydelse - ingen børn
+                if(Alder30 == "Over 30 år"){
+                    Response.Redirect("Resultat" + "?Name=NejNejNejOver");
+                    
+                }else if(Alder30 == "Under 30 år"){
+                    Response.Redirect("Place" + "?Name=NejNejNejUnder");
+                }
             }
         }
     }

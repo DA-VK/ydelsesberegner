@@ -16,8 +16,8 @@ namespace Ydelsesberegner.Pages
         
         public void OnGet()
         {
-             // Erklærer en string med navnet "Resultat" og dens funktion.
-            // "Request.QueryString[variable]" fanger variablen's værdi, som bliver passed fra forrige side med Response.Redirect()
+             
+            // "Request.Query[variable]" fanger den query string, som bliver passed fra forrige side med Response.Redirect()
             String Resultat = Request.Query["Name"];
 
             
@@ -26,7 +26,8 @@ namespace Ydelsesberegner.Pages
             if (Resultat == "IkkeBerettiget")
             {
            
-                Text1 = "Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen. " + 
+                Text1 = "Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen. " +
+                "<br/>" +
                 "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.";
             }
             /*
@@ -296,7 +297,7 @@ namespace Ydelsesberegner.Pages
             */
             // Godkendt resultat L
             #region
-            if (Resultat == "NejNejJaJa") // <-- Ikke ophold, børn a
+            if (Resultat == "NejNejJaJa") // <-- Integrationsydelse -  børn a
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
@@ -323,7 +324,7 @@ namespace Ydelsesberegner.Pages
             
             // Godkendt resultat M
             #region
-            if (Resultat == "NejNejJaNej") // <-- Ikke ophold, børn b
+            if (Resultat == "NejNejJaNej") // <-- Integrationsydelse -  børn b
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i integrationsydelse om måneden før skat.<br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
@@ -347,12 +348,12 @@ namespace Ydelsesberegner.Pages
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse. <br/>";
             }
             #endregion
-    /*
+    
             // Godkendt resultat N
             #region
-            if (Resultat == "NejNejNejUnderUde" || Resultat == "NejNejNejOver") // <-- "NejNejUnderHjemme" er brugerens svar på hvert spørgsmål
+            if (Resultat == "NejNejNejUnderUde" || Resultat == "NejNejNejOver") // <-- Integrationsydelse - ingen børn a
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 6.182 kroner i integrationsydelse om måneden før skat. <br/>" +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 6.182 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
                     "Det svarer til en timeløn på 39 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
                     "<br/><br/>" +
@@ -367,9 +368,9 @@ namespace Ydelsesberegner.Pages
                     "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
                     "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
 
-                ImageN.Visible = true;
+                Image = "N";
 
-                Label2.Text = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
+                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
                 "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
             }
@@ -377,9 +378,9 @@ namespace Ydelsesberegner.Pages
 
             // Godkendt resultat O (Kopi af N)
             #region
-            if (Resultat == "NejNejNejUnderHjemme") // <-- "NejNejUnderHjemme" er brugerens svar på hvert spørgsmål
+            if (Resultat == "NejNejNejUnderHjemme") //  <-- Integrationsydelse - ingen børn a
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i integrationsydelse om måneden før skat. <br/>" +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen.  <br/>" +
                     "Det svarer til en timeløn på 17 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
                     "<br/><br/>" +
@@ -394,13 +395,13 @@ namespace Ydelsesberegner.Pages
                     "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
                     "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
 
-                ImageO.Visible = true;
+                Image = "O";
 
-                Label2.Text = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
+                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
                 "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
             }
-            #endregion */
+            #endregion 
         }
     }
 }
