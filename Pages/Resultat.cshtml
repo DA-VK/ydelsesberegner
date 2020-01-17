@@ -1,18 +1,22 @@
 ﻿@page
 @model Ydelsesberegner.Pages.ResultatModel
 @{
-    ViewData["Title"] = "Formue";
+    ViewData["Title"] = "Resultat";
+    var imagePath = "/images/Image" + Model.Image + ".png";
 }
 
     <h2>
     </h2>
-    <p>
-        @*
-        <%-- Laver et label og definerer ID og Text attributterne.
-             Attributten 'runat="server"' er påkrævet og skal være "server" 
-             Dette label indeholder resultatet som brugeren får vist i sin browser alt efter hvad personen har svaret --%>
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label> <br/>
+    
+        
+     <br/>
+    <p>@Html.Raw(@Model.Text1)</p>
 
+
+    <br/>
+    <p> 
+        <img id=@Model.Image src="@imagePath" alt="Graf" Height="300" Style="border: 1px solid black;width:auto"/>
+    @*
         <%-- Laver billeder på siden og definerer ID, Height, Style, width, imageURL, AlternateText og Visible attributterne
              Alle billederne er som udgangspunkt blevet skjult. Billedet som passer til det tilsvarende resultat vil blive gjort synlig --%>
         <asp:Image ID="ImageA" runat="server" Height="300" Style="border: 1px solid black;width:auto" ImageUrl="/images/ImageA.png" AlternateText="Graf" Visible="false"/>
@@ -38,8 +42,9 @@
         <asp:Image ID="Image20" runat="server" Height="300" Style="border: 1px solid black;width:auto" ImageUrl="/images/Image20.png" AlternateText="Graf" Visible="false"/>
         <asp:Image ID="Image21" runat="server" Height="300" Style="border: 1px solid black;width:auto" ImageUrl="/images/Image21.png" AlternateText="Graf" Visible="false"/>
         <asp:Image ID="Image22" runat="server" Height="300" Style="border: 1px solid black;width:auto" ImageUrl="/images/Image22.png" AlternateText="Graf" Visible="false"/>
-    
-        <asp:Label ID="Label2" runat="server" Text=""></asp:Label> <br/>
-    </p>
-
+    </p> 
     *@
+    <p>@Html.Raw(@Model.Text2)</p>
+   
+
+    

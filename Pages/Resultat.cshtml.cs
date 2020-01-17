@@ -9,23 +9,27 @@ namespace Ydelsesberegner.Pages
 {
     public class ResultatModel : PageModel
     {
+        public string Text1 { get; set; }
+        public string Text2 { get; set; }
+
+        public string Image { get; set; }
+        
         public void OnGet()
         {
-            /* // Erklærer en string med navnet "Resultat" og dens funktion.
+             // Erklærer en string med navnet "Resultat" og dens funktion.
             // "Request.QueryString[variable]" fanger variablen's værdi, som bliver passed fra forrige side med Response.Redirect()
-            String Resultat = Request.QueryString["Name"];
+            String Resultat = Request.Query["Name"];
 
+            
+            
             // Hvis string "Resultat" indeholder teksten "IkkeBerettiget" --> Kør koden heri
             if (Resultat == "IkkeBerettiget")
             {
-                // Definerer Label1's Text attribut.
-                // Nedenstående tekst i anførselstegn er blevet delt op for nemmere læselighed. Der skal være anførsels- og additionstegn 
-                // på hver linje for at kæde teksten sammen.
-                Label1.Text = "Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen." +
-                    "<br/> Denne vurdering er vejledende.<br/> I Jobcenter Vejle, " +
-                    "Kan vi hjælpe dig med en endelig vurdering.";
+           
+                Text1 = "Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen. " + 
+                "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.";
             }
-
+            /*
             // Godkendt resultat A
             #region
             if (Resultat == "JaNejOverJa" || Resultat == "JaJaOverJa") // <-- "JaJaOverJa" er brugerens svar på hvert spørgsmål
@@ -289,12 +293,12 @@ namespace Ydelsesberegner.Pages
                  "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp. <br/>";
             }
             #endregion
-
+            */
             // Godkendt resultat L
             #region
-            if (Resultat == "NejNejJaJa") // <-- "NejNejOver" er brugerens svar på hvert spørgsmål
+            if (Resultat == "NejNejJaJa") // <-- Ikke ophold, børn a
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i integrationsydelse om måneden før skat. <br/>" +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
                     "Det svarer til en timeløn på 77 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer. <br/>" +
                     "<br/><br/>" +
@@ -309,19 +313,19 @@ namespace Ydelsesberegner.Pages
                     "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
                     "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
 
-                ImageL.Visible = true;
+                Image = "L";
 
-                Label2.Text = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
+                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
                 "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
             }
             #endregion
-
+            
             // Godkendt resultat M
             #region
-            if (Resultat == "NejNejJaNej") // <-- "NejNejUnderUde" er brugerens svar på hvert spørgsmål
+            if (Resultat == "NejNejJaNej") // <-- Ikke ophold, børn b
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i integrationsydelse om måneden før skat.<br/>" +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i integrationsydelse om måneden før skat.<br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
                     "Det svarer til en timeløn på 54 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer. <br/>" +
                     "<br/><br/>" +
@@ -336,14 +340,14 @@ namespace Ydelsesberegner.Pages
                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
 
-                ImageM.Visible = true;
+                Image = "M";
 
-               Label2.Text = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
+               Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
                 "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse. <br/>";
             }
             #endregion
-
+    /*
             // Godkendt resultat N
             #region
             if (Resultat == "NejNejNejUnderUde" || Resultat == "NejNejNejOver") // <-- "NejNejUnderHjemme" er brugerens svar på hvert spørgsmål

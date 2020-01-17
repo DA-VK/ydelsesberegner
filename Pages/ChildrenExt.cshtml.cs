@@ -19,11 +19,15 @@ namespace Ydelsesberegner.Pages
 
         public void OnPost()
         {
-            if(ChildrenExt == "Ja"){
-                //Response.Redirect();
-                
-            }else if(ChildrenExt == "Nej"){
-                //Response.Redirect();
+            String Status = Request.Query["Name"];
+
+            if(Status == "NejNejJa"){       //Ikke EU-borger eller ophold
+                if(ChildrenExt == "Ja"){
+                    Response.Redirect("Resultat" + "?Name=NejNejJaJa");
+                    
+                }else if(ChildrenExt == "Nej"){
+                    Response.Redirect("Resultat" + "?Name=NejNejJaNej");
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ namespace Ydelsesberegner.Pages
         public void OnPost()
         {
             if(Formue == "Ja"){
-                Response.Redirect("Resultat");
+                Response.Redirect("Resultat" + "?Name=IkkeBerettiget");
                 
             }else if(Formue == "Nej"){
                 Response.Redirect("Ophold");
