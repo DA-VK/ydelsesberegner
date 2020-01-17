@@ -20,7 +20,7 @@ namespace Ydelsesberegner.Pages
         public void OnPost()
         {
             if(EUBorgerskab == "Ja"){
-                Response.Redirect("Uddannelse" + "?Name=NejJa");
+                Response.Redirect("Uddannelse");
                 
             }else if(EUBorgerskab == "Nej"){
                 Response.Redirect("Children1"+ "?Name=NejNej");

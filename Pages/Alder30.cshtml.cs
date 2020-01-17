@@ -29,6 +29,22 @@ namespace Ydelsesberegner.Pages
                     Response.Redirect("Place" + "?Name=NejNejNejUnder");
                 }
             }
+            else if (Status == "JaJa"){         //Uddannelsesydelse
+                if(Alder30 == "Over 30 år"){
+                   Response.Redirect("Children2" + "?Name=JaJaOver");
+                    
+                }else if(Alder30 == "Under 30 år"){
+                    Response.Redirect("Children1" + "?Name=JaJaUnder");
+                }
+            }
+            else if (Status == "JaNej"){        //Kontanthjælp
+                if(Alder30 == "Over 30 år"){
+                   Response.Redirect("Children2" + "?Name=JaNejOver");
+                    
+                }else if(Alder30 == "Under 30 år"){
+                    Response.Redirect("Children1" + "?Name=JaNejUnder");
+                }
+            }
         }
     }
 }

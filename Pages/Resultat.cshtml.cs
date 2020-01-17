@@ -30,12 +30,12 @@ namespace Ydelsesberegner.Pages
                 "<br/>" +
                 "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.";
             }
-            /*
+            
             // Godkendt resultat A
             #region
-            if (Resultat == "JaNejOverJa" || Resultat == "JaJaOverJa") // <-- "JaJaOverJa" er brugerens svar på hvert spørgsmål
+            if (Resultat == "A" ) // <-- Samme resultat for JaJa og JaNej, hvis de er over 30 og har børn
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 14.993 kroner i kontanthjælp om måneden før skat.<br/>" +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 14.993 kroner i kontanthjælp om måneden før skat.<br/>" +
                     "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
                     "Det svarer til en timeløn på 94 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
                     "<br/><br/>" +
@@ -49,19 +49,19 @@ namespace Ydelsesberegner.Pages
                     "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
                     "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
 
-                ImageA.Visible = true;  // <-- Alle billederne ligger i designeren, men er skjult. Ved resultat A bliver det tilsvarende                                        
-                                        // billede gjort synlig
-                Label2.Text = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
+                Image = "A"; //Sti til billedet konstrueres i razor-siden ved hjælp af denne
+
+                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
                     "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
                     "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
             }
             #endregion
-
+            
             // Godkendt resultat B
             #region
-            if (Resultat == "JaNejOverNej" || Resultat == "JaJaOverNej") // <-- "JaJaOverNej" er brugerens svar på hvert spørgsmål
+            if (Resultat == "B") // <-- Samme resultat for JaJa og JaNej, hvis de er over 30 og ikke har børn
             {
-                Label1.Text = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 11.282 kroner i kontanthjælp om måneden før skat." +
+                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 11.282 kroner i kontanthjælp om måneden før skat." +
                     "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
                     "Det svarer til en timeløn på 70 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
                     "<br/><br/>" +
@@ -75,14 +75,14 @@ namespace Ydelsesberegner.Pages
                     "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp </b><br/>" +
                     "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed. <br/>";
 
-                ImageB.Visible = true;
+                Image = "B";
 
-                Label2.Text = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
+                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
                     "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/>" +
                     "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
             }
             #endregion
-
+            /*
             // Godkendt resultat C
             #region
             if (Resultat == "JaJaUnderJaJa") // <-- "JaJaUnderJa" er brugerens svar på hvert spørgsmål
@@ -378,7 +378,7 @@ namespace Ydelsesberegner.Pages
 
             // Godkendt resultat O (Kopi af N)
             #region
-            if (Resultat == "NejNejNejUnderHjemme") //  <-- Integrationsydelse - ingen børn a
+            if (Resultat == "NejNejNejUnderHjemme") //  <-- Integrationsydelse - ingen børn b
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen.  <br/>" +

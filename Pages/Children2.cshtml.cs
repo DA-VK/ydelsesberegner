@@ -20,10 +20,10 @@ namespace Ydelsesberegner.Pages
         public void OnPost()
         {
             if(Children2 == "Ja"){
-                //Response.Redirect();
+                Response.Redirect("Resultat" + "?Name=A");
                 
             }else if(Children2 == "Nej"){
-                //Response.Redirect();
+                Response.Redirect("Resultat" + "?Name=B");
             }
         }
     }
