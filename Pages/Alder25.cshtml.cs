@@ -9,8 +9,22 @@ namespace Ydelsesberegner.Pages
 {
     public class Alder25Model : PageModel
     {
+      [BindProperty]
+         public string Alder25 { get; set; }
+
+         public string[] Alder25Svar = new[] { "Over 25 år", "Under 25 år" };
         public void OnGet()
         {
+        }
+
+        public void OnPost()
+        {
+            if(Alder25 == "Over 25 år"){
+                //Response.Redirect();
+                
+            }else if(Alder25 == "Under 25 år"){
+                //Response.Redirect();
+            }
         }
     }
 }

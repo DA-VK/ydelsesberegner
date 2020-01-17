@@ -1,4 +1,34 @@
 ﻿@page
 @model Ydelsesberegner.Pages.Alder30Model
 @{
+    ViewData["Title"] = "Alder";
 }
+
+<div id="2" class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">Er du over eller under 30?</h2>
+
+        @*
+        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
+            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
+        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
+        <br class="break" />
+        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
+         *@
+        
+    
+
+       
+    <form method="post">
+        @foreach (var svar in Model.Alder30Svar)
+        {
+            <input type="radio" asp-for="Alder30" value="@svar" /> @svar<br/>
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>
+    
+       
+        
+ 
+</div>
