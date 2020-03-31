@@ -21,10 +21,10 @@ namespace Ydelsesberegner.Pages
         public void OnPost()
         {
             if(Ophold == "Ja"){
-                Response.Redirect("Uddannelse");
+                Response.Redirect("Employment");
                 
             }else if(Ophold == "Nej"){
-                Response.Redirect("EUBorgerskab" + "?Name=Nej");
+                Response.Redirect("Children1" + "?Name=IY");
             }
         }
     }

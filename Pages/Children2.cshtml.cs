@@ -17,6 +17,8 @@ namespace Ydelsesberegner.Pages
         {
         }
 
+
+        //Denne kommer fra både uddannelsesydelse over 30 og KH over 30
         public void OnPost()
         {
             if(Children2 == "Ja"){

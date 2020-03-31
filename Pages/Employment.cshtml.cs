@@ -7,25 +7,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Ydelsesberegner.Pages
 {
-    public class Formue1Model : PageModel
+    public class EmploymentModel : PageModel
     {
-        
         [BindProperty]
-         public string Formue { get; set; }
+         public string Employment { get; set; }
 
-         public string[] Formue1Svar = new[] { "Ja", "Nej" };
-
+         public string[] EmploymentSvar = new[] { "Ja", "Nej" };
         public void OnGet()
         {
         }
 
         public void OnPost()
         {
-            if(Formue == "Ja"){
-                Response.Redirect("Resultat" + "?Name=IkkeBerettiget");
+            if(Employment == "Ja"){
+                Response.Redirect("Uddannelse");
                 
-            }else if(Formue == "Nej"){
-                Response.Redirect("EUBorgerskab");
+            }else if(Employment == "Nej"){
+                Response.Redirect("Children1" + "?Name=IY");
             }
         }
     }

@@ -25,44 +25,35 @@ namespace Ydelsesberegner.Pages
             
             String Status = Request.Query["Name"];
 
-            if(Status == "Nej"){
+            if(Status == "IY"){ //Integrationsydelse
 
                 if(Children1 == "Ja"){
-                    //Response.Redirect();
+                    Response.Redirect("ChildrenExt" + "?Name=IYJa");
                     
                 }else if(Children1 == "Nej"){
-                    //Response.Redirect();
+                    Response.Redirect("Alder30" + "?Name=IYNej");
                 }
             }
-            else if(Status == "NejNej"){ //Integrationsydelse
+            else if(Status == "UYUnder"){ //Uddannelsesydelse
 
                 if(Children1 == "Ja"){
-                    Response.Redirect("ChildrenExt" + "?Name=NejNejJa");
+                    Response.Redirect("ChildrenExt" + "?Name=UYUnderJa");
                     
                 }else if(Children1 == "Nej"){
-                    Response.Redirect("Alder30" + "?Name=NejNejNej");
+                    Response.Redirect("Place" + "?Name=UYUnderNej");
                 }
             }
-            else if(Status == "JaJaUnder"){ //Uddannelsesydelse
+            else if(Status == "KHUnder"){ //Kontanthjælp
 
                 if(Children1 == "Ja"){
-                    Response.Redirect("ChildrenExt" + "?Name=JaJaUnderJa");
+                    Response.Redirect("ChildrenExt" + "?Name=KHUnderJa");
                     
                 }else if(Children1 == "Nej"){
-                    Response.Redirect("Place" + "?Name=JaJaUnderNej");
-                }
-            }
-            else if(Status == "JaNejUnder"){ //Kontanthjælp
-
-                if(Children1 == "Ja"){
-                    Response.Redirect("ChildrenExt" + "JaNejUnderJa");
-                    
-                }else if(Children1 == "Nej"){
-                    Response.Redirect("Place" + "JaNejUnderNej");
+                    Response.Redirect("Place" + "?Name=KHUnderNej");
                 }
             }
             else{
-
+                Response.Redirect("Error" + "?Name=Children1_" + Status);
             }
 
         }

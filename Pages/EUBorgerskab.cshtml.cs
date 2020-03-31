@@ -23,7 +23,7 @@ namespace Ydelsesberegner.Pages
                 Response.Redirect("Uddannelse");
                 
             }else if(EUBorgerskab == "Nej"){
-                Response.Redirect("Children1"+ "?Name=NejNej");
+                Response.Redirect("Ophold");
             }
         }
     }

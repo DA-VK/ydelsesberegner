@@ -24,7 +24,7 @@ namespace Ydelsesberegner.Pages
                 Response.Redirect("Resultat" + "?Name=IkkeBerettiget");
                 
             }else if(Formue == "Nej"){
-                Response.Redirect("Ophold");
+                Response.Redirect("EUBorgerskab");
             }
         }
     }

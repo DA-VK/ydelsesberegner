@@ -19,11 +19,11 @@ namespace Ydelsesberegner.Pages
 
         public void OnPost()
         {
-            if(Uddannelse == "Ja"){     //B Uddannelsesydelse
-                Response.Redirect("Alder30" + "?Name=JaJa");
+            if(Uddannelse == "Ja"){     //Kontanthjælpe
+                Response.Redirect("Alder30" + "?Name=KH");
                 
-            }else if(Uddannelse == "Nej"){  //C Kontanthjælp
-                Response.Redirect("Alder30" + "?Name=JaNej");
+            }else if(Uddannelse == "Nej"){  //Uddannelsesydelse
+                Response.Redirect("Alder30" + "?Name=UY");
             }
         }
     }

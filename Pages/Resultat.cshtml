@@ -12,12 +12,15 @@
     <p>@Html.Raw(@Model.Text1)</p>
 
     <br/>
-
-    <p> 
+    @if (Model != null && !String.IsNullOrEmpty(Model.Image))
+    {    <p> 
         <img id=@Model.Image src="@imagePath" alt="Graf" Height="300" Style="border: 1px solid black;width:auto"/>
     </p>
     
+
+    
     <p>@Html.Raw(@Model.Text2)</p>
+    }
    
 
     

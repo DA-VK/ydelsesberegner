@@ -21,29 +21,32 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "NejNejNej"){          //Integrationsydelse - ingen børn
+            if(Status == "IYNej"){          //Integrationsydelse - ingen børn
                 if(Alder30 == "Over 30 år"){
-                    Response.Redirect("Resultat" + "?Name=NejNejNejOver");
+                    Response.Redirect("Resultat" + "?Name=N");
                     
                 }else if(Alder30 == "Under 30 år"){
-                    Response.Redirect("Place" + "?Name=NejNejNejUnder");
+                    Response.Redirect("Place" + "?Name=IYNejUnder");
                 }
             }
-            else if (Status == "JaJa"){         //Uddannelsesydelse
+            else if (Status == "UY"){         //Uddannelsesydelse
                 if(Alder30 == "Over 30 år"){
-                   Response.Redirect("Children2" + "?Name=JaJaOver");
+                   Response.Redirect("Children2" + "?Name=UYOver"); //Videre til samme som KH Over 30 (Children2)
                     
                 }else if(Alder30 == "Under 30 år"){
-                    Response.Redirect("Children1" + "?Name=JaJaUnder");
+                    Response.Redirect("Children1" + "?Name=UYUnder");
                 }
             }
-            else if (Status == "JaNej"){        //Kontanthjælp
+            else if (Status == "KH"){        //Kontanthjælp
                 if(Alder30 == "Over 30 år"){
-                   Response.Redirect("Children2" + "?Name=JaNejOver");
+                   Response.Redirect("Children2" + "?Name=KHOver");
                     
                 }else if(Alder30 == "Under 30 år"){
-                    Response.Redirect("Children1" + "?Name=JaNejUnder");
+                    Response.Redirect("Children1" + "?Name=KHUnder");
                 }
+            }
+            else{
+                Response.Redirect("Error" + "?Name=Alder30_" + Status);
             }
         }
     }

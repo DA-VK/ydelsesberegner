@@ -1,0 +1,20 @@
+@page
+@model Ydelsesberegner.Pages.EmploymentModel
+@{
+    ViewData["Title"] = "Beskæftigelseskrav";
+}
+
+<div id="2" class="text-left">
+   <br/><br/><br/>
+   <h2 class="display-4">Har du haft sammenlagt 2½ års fuldtidsbeskæftigelse indenfor de seneste 10 år?</h2>
+
+         
+          
+    <form method="post">
+        @foreach (var svar in Model.EmploymentSvar)
+        {
+            <input type="radio" asp-for="Employment" value="@svar" /> @svar<br/>
+        }
+        <br/> 
+        <input type="submit" value="Næste" class="btn btn-secondary"/>
+    </form>

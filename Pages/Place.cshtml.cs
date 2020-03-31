@@ -21,15 +21,15 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "NejNejNejUnder"){          //Integrationsydelse - ingen børn, under 30
+            if(Status == "IYNejUnder"){          //Integrationsydelse - ingen børn, under 30
                 if(Place == "Jeg er udeboende"){
-                    Response.Redirect("Resultat" + "?Name=NejNejNejUnderUde");
+                    Response.Redirect("Resultat" + "?Name=N");
                     
                 }else if(Place == "Jeg er hjemmeboende"){
-                    Response.Redirect("Resultat" + "?Name=NejNejNejUnderHjemme");
+                    Response.Redirect("Resultat" + "?Name=O");
                 }
             }
-            else if(Status == "JaJaUnderNej"){          //Uddannelsesydelse under 30
+            else if(Status == "UYUnderNej"){          //Uddannelsesydelse under 30
                 if(Place == "Jeg er udeboende"){
                     Response.Redirect("Resultat" + "?Name=G");
                     
@@ -37,7 +37,7 @@ namespace Ydelsesberegner.Pages
                     Response.Redirect("Resultat" + "?Name=H");
                 }
             }
-            else if(Status == "JaNejUnderNej"){          //Kontanthjælp
+            else if(Status == "KHUnderNej"){          //Kontanthjælp
                 if(Place == "Jeg er udeboende"){
                     Response.Redirect("Resultat" + "?Name=E");
                     
@@ -46,7 +46,7 @@ namespace Ydelsesberegner.Pages
                 }
             }
             else{
-
+                Response.Redirect("Error" + "?Name=Place_" + Status);
             }
         }
     }

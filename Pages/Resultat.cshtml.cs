@@ -297,7 +297,7 @@ namespace Ydelsesberegner.Pages
             
             // Godkendt resultat L
             #region
-            if (Resultat == "NejNejJaJa") // <-- Integrationsydelse -  børn a
+            if (Resultat == "L") // <-- Integrationsydelse -  børn a
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
@@ -324,7 +324,7 @@ namespace Ydelsesberegner.Pages
             
             // Godkendt resultat M
             #region
-            if (Resultat == "NejNejJaNej") // <-- Integrationsydelse -  børn b
+            if (Resultat == "M") // <-- Integrationsydelse -  børn b
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i integrationsydelse om måneden før skat.<br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
@@ -351,7 +351,7 @@ namespace Ydelsesberegner.Pages
     
             // Godkendt resultat N
             #region
-            if (Resultat == "NejNejNejUnderUde" || Resultat == "NejNejNejOver") // <-- Integrationsydelse - ingen børn a
+            if (Resultat == "N") // <-- Integrationsydelse - ingen børn a
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 6.182 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
@@ -378,7 +378,7 @@ namespace Ydelsesberegner.Pages
 
             // Godkendt resultat O (Kopi af N)
             #region
-            if (Resultat == "NejNejNejUnderHjemme") //  <-- Integrationsydelse - ingen børn b
+            if (Resultat == "O") //  <-- Integrationsydelse - ingen børn b
             {
                 Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i integrationsydelse om måneden før skat. <br/>" +
                     "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen.  <br/>" +
