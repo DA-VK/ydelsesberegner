@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +14,75 @@ namespace Ydelsesberegner.Pages
         public string Text2 { get; set; }
 
         public string Image { get; set; }
+
+        
+        class Udfald { 
+
+            public string mnd, time, type; 
+            public Udfald(string m, string t, string ty) 
+            { 
+                mnd = m; 
+                time = t;
+                type = ty;
+            } 
+  
+        }
+
+
+        public const string Text1Del1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få ";
+        
+        
+        public const string KHText1Del2 = " kroner i kontanthjælp om måneden før skat.<br/>" +
+                    "Når du modtager kontanthjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
+                    "Det svarer til en timeløn på ";
+
+        public const string UYText1Del2 = " kroner i uddannelseshjælp om måneden før skat.<br/>" +
+                    "Når du modtager uddannelseshjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
+                    "Det svarer til en timeløn på ";
+
+         public const string IYText1Del2 = " kroner i integrationsydelse om måneden før skat. <br/>" +
+                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
+                    "Det svarer til en timeløn på ";
+
+        public const string Text1Del3 = " kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
+                    "<br/><br/>" +
+
+                    "<b> Det kan betale sig at arbejde </b><br/>" +
+                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
+                    "• Et avisbud får ca. 100 kroner i timen.<br/>" +
+                    "• En kassemedarbejder får ca. 130 kroner i timen.<br/>" +
+                    "• En faglært får ca. 200 kroner i timen.<br/><br/>";
+
+        public const string KHText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
+                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
+
+        public const string UYText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </b><br/>" +
+                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
+
+        public const string IYText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
+                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
+                    
+
+        public const string KHText2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
+                "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
+                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
+
+        public const string UYText2 = "<br/><b> Sådan søger du uddannelseshjælp</b><br/>" +
+                "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
+                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.";
+
+        public const string IYText2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
+            "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
+            "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
         
         public void OnGet()
         {
-             
+
+
             // "Request.Query[variable]" fanger den query string, som bliver passed fra forrige side med Response.Redirect()
             String Resultat = Request.Query["Name"];
 
-            
-            
-            // Hvis string "Resultat" indeholder teksten "IkkeBerettiget" --> Kør koden heri
+            // Hvis string "Resultat" er "IkkeBerettiget" --> 
             if (Resultat == "IkkeBerettiget")
             {
            
@@ -30,378 +90,62 @@ namespace Ydelsesberegner.Pages
                 "<br/>" +
                 "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.";
             }
+            else {
+
             
-            // Godkendt resultat A
-            #region
-            if (Resultat == "A" ) // <-- Samme resultat for JaJa og JaNej, hvis de er over 30 og har børn
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 14.993 kroner i kontanthjælp om måneden før skat.<br/>" +
-                    "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 94 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
+            //Alle udfald gemmes i et hashtable med månedelig ydelse, timeløn og ydelsestype 
+            Hashtable muligeUdfald = new Hashtable();
+        
 
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "• Et avisbud får ca. 100 kroner i timen.<br/>" +
-                    "• En kassemedarbejder får ca. 130 kroner i timen.<br/>" +
-                    "• En faglært får ca. 200 kroner i timen.<br/><br/>" +
+            muligeUdfald.Add("A", new Udfald("15.355", "96", "kh"));
+            muligeUdfald.Add("B", new Udfald("11.554", "72", "kh"));
+            muligeUdfald.Add("C", new Udfald("14.677", "92", "kh"));
+            muligeUdfald.Add("D", new Udfald("10.268", "64", "kh"));
+            muligeUdfald.Add("E", new Udfald("7.448", "46", "kh"));
+            muligeUdfald.Add("F", new Udfald("3.594", "22", "kh"));
+            muligeUdfald.Add("G", new Udfald("6.331", "39", "uy"));
+            muligeUdfald.Add("H", new Udfald("2.728", "17",  "uy"));
+            muligeUdfald.Add("I", new Udfald("12.663", "79", "uy"));
+            muligeUdfald.Add("K", new Udfald("8.862", "55", "uy"));
+            muligeUdfald.Add("L", new Udfald("12.283", "77", "iy"));
+            muligeUdfald.Add("M", new Udfald("8.596", "54", "iy"));
+            muligeUdfald.Add("N", new Udfald("6.142", "38", "iy"));
+            muligeUdfald.Add("O", new Udfald("2.646", "17", "iy"));
 
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
+       
+            //Tjekker i hashtable hvilket udfald det er pga af resultatet fra queryString, og henter de relevante data:
+            Udfald aktueltUdfald = (Udfald)muligeUdfald[Resultat];
 
-                Image = "A"; //Sti til billedet konstrueres i razor-siden ved hjælp af denne
+            string ydelsesType = aktueltUdfald.type;
+            string ydelseMnd = aktueltUdfald.mnd;
+            string ydelseTime = aktueltUdfald.time;
 
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                    "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                    "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
-            }
-            #endregion
             
-            // Godkendt resultat B
-            #region
-            if (Resultat == "B") // <-- Samme resultat for JaJa og JaNej, hvis de er over 30 og ikke har børn
+
+            //Bygger tekststrenge til resultatsiden baseret på type og med de aktuelle værdier
+            switch (ydelsesType)
             {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 11.282 kroner i kontanthjælp om måneden før skat." +
-                    "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 70 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
+                case "kh": //Kontanthjælp
+                    Text1 = Text1Del1 + ydelseMnd + KHText1Del2 + ydelseTime + Text1Del3 + KHText1Del4;
+                    Text2 = KHText2;
+                    break;
 
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "• Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
+                case "uy": //Uddannelsesydelse
+                    Text1 = Text1Del1 + ydelseMnd + UYText1Del2 + ydelseTime + Text1Del3 + UYText1Del4;
+                    Text2 = UYText2; 
+                    break;
 
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed. <br/>";
+                case "iy": //Integrationsydelse
+                    Text1 = Text1Del1 + ydelseMnd + IYText1Del2 + ydelseTime + Text1Del3 + IYText1Del4;
+                    Text2 = IYText2; 
+                    break;
 
-                Image = "B";
-
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                    "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/>" +
-                    "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
             }
-            #endregion
+
+            Image = Resultat;
             
-            // Godkendt resultat C
-            #region
-            if (Resultat == "C") // Kontanthjælp - børnetillæg
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 14.331 kroner i kontanthjælp om måneden før skat. <br/>" +
-                    "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 89 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-                Image = "C";
-
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                    "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                    "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
             }
-                #endregion
-
-            // Godkendt resultat D
-            #region
-            if (Resultat == "D" ) // Kontanthjælp - ikke børnetillæg
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 10.026 kroner i kontanthjælp om måneden før skat.<br/>" +
-                    "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 63 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen.<br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen<br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp</b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed<br/>";
-
-                Image = "D";
-
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.<br/>";
-            }
-            #endregion
-
-            // Godkendt resultat E
-            #region
-            if (Resultat == "E") // Kontanthjælp - ingen børn - udeboende
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 7.272 kroner i kontanthjælp om måneden før skat.<br/>" +
-                    "Når du modtager kontanthjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 45 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen.<br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed<br/>";
-
-                Image = "E";
-
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                    "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
-            }
-            #endregion
-
-            // Godkendt resultat F
-            #region
-            if (Resultat == "F") // Kontanthjælp - ingen børn - hjemmeboende
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 3.509 kroner i kontanthjælp om måneden før skat.<br/>" +
-                    "Når du modtager kontanthjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    ". Det svarer til en timeløn på 22 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer.<br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen.<br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen<br/>" +
-                    "•	En faglært får ca. 200 kroner i timen<br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed<br/>";
-
-
-                Image = "F";
-
-                Text2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
-
-            }
-            #endregion
-
-            // Godkendt resultat G
-            #region
-            if (Resultat == "G") // <-- Uddannelsesydelse - under 30 udeboende
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 6.182 kroner i uddannelseshjælp om måneden før skat.<br/>" +
-                    "Når du modtager uddannelseshjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 39 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen.<br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen<br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </b><br/>" +
-                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-                Image = "G";
-
-                Text2 = "<br/><b> Sådan søger du uddannelseshjælp</b><br/>" +
-                    "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                    "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.";
-            }
-            #endregion
-
-            // Godkendt resultat H
-            #region
-            if (Resultat == "H") // <-- Uddannelsesydelse - under 30 hjemme
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i uddannelseshjælp om måneden før skat.<br/>" +
-                    "Når du modtager uddannelseshjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 17 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </b><br/>" +
-                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-
-                Image = "H";
-
-                Text2 = "<br/><b> Sådan søger du uddannelseshjælp </b><br/>" +
-                "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.<br/>";
-            }
-            #endregion
-           
-            // Godkendt resultat I
-            #region
-            if (Resultat == "I") // <-- Uddannelsesydelse - børn - tillæg
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i uddannelseshjælp om måneden før skat.<br/>" +
-                    "Når du modtager uddannelseshjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 77 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp</b><br/>" +
-                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed. <br/>";
-
-                Image = "I";
-
-               Text2 = "<br/><b>Sådan søger du uddannelseshjælp</b><br/>" +
-                "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp. <br/>";
-            }
-            #endregion
-
-            // Godkendt resultat K (Kopi af I)
-            #region
-            if (Resultat == "K") // <-- Uddannelsesydelse - børn - ikke tillæg
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i uddannelseshjælp om måneden før skat.<br/>" +
-                    "Når du modtager uddannelseshjælp skal stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
-                    "Det svarer til en timeløn på 54 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp</b><br/>" +
-                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed. <br/>";
-
-                Image = "K";
-
-               Text2 = "<br/><b>Sådan søger du uddannelseshjælp</b><br/>" +
-                 "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/>" +
-                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp. <br/>";
-            }
-            #endregion
             
-            // Godkendt resultat L
-            #region
-            if (Resultat == "L") // <-- Integrationsydelse -  børn a
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 12.364 kroner i integrationsydelse om måneden før skat. <br/>" +
-                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
-                    "Det svarer til en timeløn på 77 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer. <br/>" +
-                    "<br/><br/>" +
-
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
-                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
-
-                Image = "L";
-
-                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-                "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
-            }
-            #endregion
-            
-            // Godkendt resultat M
-            #region
-            if (Resultat == "M") // <-- Integrationsydelse -  børn b
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 8.653 kroner i integrationsydelse om måneden før skat.<br/>" +
-                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
-                    "Det svarer til en timeløn på 54 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer. <br/>" +
-                    "<br/><br/>" +
-
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                   "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
-                   "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-                Image = "M";
-
-               Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-                "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse. <br/>";
-            }
-            #endregion
-    
-            // Godkendt resultat N
-            #region
-            if (Resultat == "N") // <-- Integrationsydelse - ingen børn a
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 6.182 kroner i integrationsydelse om måneden før skat. <br/>" +
-                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
-                    "Det svarer til en timeløn på 39 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
-                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-                Image = "N";
-
-                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-                "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
-            }
-            #endregion
-
-            // Godkendt resultat O (Kopi af N)
-            #region
-            if (Resultat == "O") //  <-- Integrationsydelse - ingen børn b
-            {
-                Text1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få 2.664 kroner i integrationsydelse om måneden før skat. <br/>" +
-                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen.  <br/>" +
-                    "Det svarer til en timeløn på 17 kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
-
-
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen. <br/>" +
-                    "•	Et avisbud får ca. 100 kroner i timen. <br/>" +
-                    "•	En kassemedarbejder får ca. 130 kroner i timen <br/>" +
-                    "•	En faglært får ca. 200 kroner i timen <br/><br/>" +
-
-                    "<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
-                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
-
-                Image = "O";
-
-                Text2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-                "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
-            }
-            #endregion 
         }
     }
 }
