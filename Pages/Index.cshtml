@@ -27,6 +27,7 @@
         <br/> 
         <input type="submit" value="Næste" class="btn btn-secondary"/>
     </form>
+    
     @if (!string.IsNullOrEmpty(Model.Civilstand))
     {
         <br/>
@@ -34,9 +35,5 @@
         <p>Du er @Model.Civilstand!</p>
     }
        
-        @*        <%-- Laver knap til at navigere videre. Definerer ID, Text og OnClick attributterne.
-            "OnClick" affyres når der bliver trykket på knappen og kalder på koden i "Default.aspx.cs" som definerer hvad der sker --%>
-        <asp:Button ID="Button1" runat="server" Text="Næste" OnClick="Button1_Click" />
-
-        *@
+       
 </div>

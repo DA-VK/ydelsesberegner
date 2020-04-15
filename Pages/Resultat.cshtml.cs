@@ -64,15 +64,15 @@ namespace Ydelsesberegner.Pages
                     
 
         public const string KHText2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                "Du søger om kontanthjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
+                "Du søger om kontanthjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
 
         public const string UYText2 = "<br/><b> Sådan søger du uddannelseshjælp</b><br/>" +
-                "Du søger om uddannelseshjælp ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet.<br/>" +
+                "Du søger om uddannelseshjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.";
 
         public const string IYText2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-            "Du søger om integrationsydelse ved at møde op i Modtagelsen i Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, du har udfyldt en ansøgning i jobcenteret og meldt dig ledig på Jobnet. <br/><br/>" +
+            "Du søger om integrationsydelse ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
             "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
         
         public void OnGet()
