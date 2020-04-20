@@ -23,7 +23,7 @@ namespace Ydelsesberegner.Pages
                 Response.Redirect("Uddannelse");
                 
             }else if(Employment == "Nej"){
-                Response.Redirect("Children1" + "?Name=IY");
+                Response.Redirect("Children1" + "?Name=SH");
             }
         }
     }
