@@ -21,7 +21,7 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "IYJa"){       //Integrationsydelse
+            if(Status == "SHJa"){       //SH-ydelse
                 if(ChildrenExt == "Ja"){
                     Response.Redirect("Resultat" + "?Name=L");
                     

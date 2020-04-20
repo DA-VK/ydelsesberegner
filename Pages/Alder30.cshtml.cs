@@ -21,12 +21,12 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "IYNej"){          //Integrationsydelse - ingen børn
+            if(Status == "SHNej"){          //SH-ydelse - ingen børn
                 if(Alder30 == "Over 30 år"){
                     Response.Redirect("Resultat" + "?Name=N");
                     
                 }else if(Alder30 == "Under 30 år"){
-                    Response.Redirect("Place" + "?Name=IYNejUnder");
+                    Response.Redirect("Place" + "?Name=SHNejUnder");
                 }
             }
             else if (Status == "UY"){         //Uddannelsesydelse

@@ -24,7 +24,7 @@ namespace Ydelsesberegner.Pages
                 Response.Redirect("Employment");
                 
             }else if(Ophold == "Nej"){
-                Response.Redirect("Children1" + "?Name=IY");
+                Response.Redirect("Children1" + "?Name=SH");
             }
         }
     }

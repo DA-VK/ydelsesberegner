@@ -40,8 +40,8 @@ namespace Ydelsesberegner.Pages
                     "Når du modtager uddannelseshjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
                     "Det svarer til en timeløn på ";
 
-         public const string IYText1Del2 = " kroner i integrationsydelse om måneden før skat. <br/>" +
-                    "Når du modtager integrationsydelse skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
+         public const string SHText1Del2 = " kroner i selvforsørgelses- og hjemrejseydelse (S&H-ydelse) om måneden før skat. <br/>" +
+                    "Når du modtager selvforsørgelses- og hjemrejseydelse (S&H-ydelse) skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
                     "Det svarer til en timeløn på ";
 
         public const string Text1Del3 = " kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
@@ -59,8 +59,8 @@ namespace Ydelsesberegner.Pages
         public const string UYText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </b><br/>" +
                     "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
 
-        public const string IYText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til integrationsydelse </b><br/>" +
-                    "Hvis du tager et job i stedet for integrationsydelse kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
+        public const string SHText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til selvforsørgelses- og hjemrejseydelse (S&H-ydelse) </b><br/>" +
+                    "Hvis du tager et job i stedet for selvforsørgelses- og hjemrejseydelse (S&H-ydelse) kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
                     
 
         public const string KHText2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
@@ -71,9 +71,9 @@ namespace Ydelsesberegner.Pages
                 "Du søger om uddannelseshjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
                 "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.";
 
-        public const string IYText2 = "<br/><b> Sådan søger du integrationsydelse </b><br/>" +
-            "Du søger om integrationsydelse ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få integrationsydelse fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
-            "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i integrationsydelse.<br/>";
+        public const string SHText2 = "<br/><b> Sådan søger du selvforsørgelses- og hjemrejseydelse (S&H-ydelse) </b><br/>" +
+            "Du søger om selvforsørgelses- og hjemrejseydelse (S&H-ydelse) ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få selvforsørgelses- og hjemrejseydelse (S&H-ydelse) fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
+            "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i selvforsørgelses- og hjemrejseydelse (S&H-ydelse).<br/>";
         
         public void OnGet()
         {
@@ -107,10 +107,10 @@ namespace Ydelsesberegner.Pages
             muligeUdfald.Add("H", new Udfald("2.728", "17",  "uy"));
             muligeUdfald.Add("I", new Udfald("12.663", "79", "uy"));
             muligeUdfald.Add("K", new Udfald("8.862", "55", "uy"));
-            muligeUdfald.Add("L", new Udfald("12.283", "77", "iy"));
-            muligeUdfald.Add("M", new Udfald("8.596", "54", "iy"));
-            muligeUdfald.Add("N", new Udfald("6.142", "38", "iy"));
-            muligeUdfald.Add("O", new Udfald("2.646", "17", "iy"));
+            muligeUdfald.Add("L", new Udfald("12.283", "77", "sh"));
+            muligeUdfald.Add("M", new Udfald("8.596", "54", "sh"));
+            muligeUdfald.Add("N", new Udfald("6.142", "38", "sh"));
+            muligeUdfald.Add("O", new Udfald("2.646", "17", "sh"));
 
        
             //Tjekker i hashtable hvilket udfald det er pga af resultatet fra queryString, og henter de relevante data:
@@ -135,9 +135,9 @@ namespace Ydelsesberegner.Pages
                     Text2 = UYText2; 
                     break;
 
-                case "iy": //Integrationsydelse
-                    Text1 = Text1Del1 + ydelseMnd + IYText1Del2 + ydelseTime + Text1Del3 + IYText1Del4;
-                    Text2 = IYText2; 
+                case "sh": //selvforsørgelses- og hjemrejseydelse (S&H-ydelse)
+                    Text1 = Text1Del1 + ydelseMnd + SHText1Del2 + ydelseTime + Text1Del3 + SHText1Del4;
+                    Text2 = SHText2; 
                     break;
 
             }

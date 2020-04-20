@@ -25,13 +25,13 @@ namespace Ydelsesberegner.Pages
             
             String Status = Request.Query["Name"];
 
-            if(Status == "IY"){ //Integrationsydelse
+            if(Status == "SH"){ //SH-ydelse
 
                 if(Children1 == "Ja"){
-                    Response.Redirect("ChildrenExt" + "?Name=IYJa");
+                    Response.Redirect("ChildrenExt" + "?Name=SHJa");
                     
                 }else if(Children1 == "Nej"){
-                    Response.Redirect("Alder30" + "?Name=IYNej");
+                    Response.Redirect("Alder30" + "?Name=SHNej");
                 }
             }
             else if(Status == "UYUnder"){ //Uddannelsesydelse

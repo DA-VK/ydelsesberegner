@@ -21,7 +21,7 @@ namespace Ydelsesberegner.Pages
         {
             String Status = Request.Query["Name"];
 
-            if(Status == "IYNejUnder"){          //Integrationsydelse - ingen børn, under 30
+            if(Status == "SHNejUnder"){          //SH-ydelse - ingen børn, under 30
                 if(Place == "Jeg er udeboende"){
                     Response.Redirect("Resultat" + "?Name=N");
                     
