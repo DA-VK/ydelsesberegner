@@ -6,8 +6,8 @@
 
 <div id="2" class="text-left">
    <br/><br/><br/>
-   <h2 class="display-4">Har du hjemmeboende børn?</h2>
-
+   <h1>Har du hjemmeboende børn?</h1>
+    <br/>
              
     <form method="post">
         @foreach (var svar in Model.Children2Svar)
@@ -15,6 +15,7 @@
             <input type="radio" asp-for="Children2" value="@svar" /> @svar<br/>
         }
         <br/> 
+        <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">
         <input type="submit" value="Næste" class="btn btn-secondary"/>
     </form>
     

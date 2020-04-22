@@ -6,7 +6,8 @@
 
 <div class="text-left">
    <br/><br/><br/>
-   <h2 class="display-4">Har du en erhvervskompetencegivende uddannelse? </h2>
+   <h1>Har du en erhvervskompetencegivende uddannelse? </h1>
+   <br/>
 
         @*
         <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
@@ -25,19 +26,23 @@
             <input type="radio" asp-for="Uddannelse" value="@svar" /> @svar<br />
         }
         <br/> 
+        <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">
         <input type="submit" value="Næste" class="btn btn-secondary"/>
     </form>
     
        
     <br/>   
-    <p>
-        <b>Definition af erhvervskompetencegivende uddannelse:</b> 
-            <br/><br/>
+    <br/>
+  
+        <h3>Definition af erhvervskompetencegivende uddannelse</h3> 
+              
+              <p>
             Erhvervskompetencegivende uddannelser dækker over erhvervsuddannelserne, kortere videregående uddannelser, professionsbachelor uddannelser og længere videregående uddannelser. 
-            <br/><br/>
+              </p>
+              <p>
             For at have en erhvervskompetencegivende uddannelse skal uddannelsen være afsluttet. 
-            <br/><br/>
+             </p>
 
-    </p>
+
  
 </div>

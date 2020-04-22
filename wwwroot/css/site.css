@@ -11,9 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body   
 {
-  /*background: #b6b7bc; */
-  font-size: 17px;
-  font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+  font-family: "arial", serif;;
   margin: 0px;
   padding: 0px;
   color: #292929;
@@ -38,80 +36,49 @@ a:active
 p
 {
   margin-bottom: 10px;
-  line-height: 1.6em;
-font-size: 17px;
-font-family: "arial",serif;
+  font-family: "arial",serif;
 }
 
-.b
-{
-font-family: "conduit-itc-w01",serif;
-font-size: 30px;
-font-style: italic;
-margin-bottom: 5px;
-}
-
-b, strong
-{
-font-family: "conduit-itc-w01",serif;
-font-size: 30px;
-font-weight: 600;
-font-style: italic;
-margin-bottom: 5px;
-}
 
 #ctl00_MainContent_Label1 strong
 {
-  font-family: arial, serif;
+font-family: arial, serif;
 font-size: 17px;
-  font-weight: 600;
+font-weight: 600;
 font-style: normal;
 margin-bottom: 0px;
 }
+
 
 /* HEADINGS   
 ----------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6
 {
-font-family: "conduit-itc-w01",serif;
-  font-size: 1.5em;
+  font-family: "conduit-itc-w01",serif;
+
+
   color: #292929;
-  font-variant: small-caps;
+  /*font-variant: small-caps;*/
+  
   text-transform: none;
   font-weight: 200;
   margin-bottom: 0px;
 }
-
+ 
 h1
 {
-  font-size: 1.6em;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-}
-
-h2
-{
-  font-size: 50px;
+ 
   font-weight: 100;
-font-family: "conduit-itc-w01",serif;
-font-variant: normal;
+  font-family: "conduit-itc-w01",serif;
 }
-
+  
 h3
 {
-  font-size: 1.2em;
+
+  font-weight: 100;
 }
 
-h4
-{
-  font-size: 1.1em;
-}
-
-h5, h6
-{
-  font-size: 1em;
-}
 
 /* this rule styles <h1> and <h2> tags that are the 
 first child of the left and right table columns */
@@ -123,14 +90,16 @@ first child of the left and right table columns */
 
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
-
+/*
 .page
 {
   width: 960px;
   background-color: #fff;
   margin: 20px auto 0px auto;
-  /*border: 1px solid #496077; */
+
 }
+
+
 
 @media screen and (max-width: 768px) {
 body {
@@ -274,10 +243,11 @@ font-family: "arial",serif;
   text-align: center;
   line-height: normal;
 }
-
+*/
 
 /* TAB MENU   
 ----------------------------------------------------------*/
+/*
 div.hideSkiplink
 {
   background-color:#3a4f63;
@@ -323,11 +293,12 @@ div.menu ul li a:active
   text-decoration: none;
 }
 
+*/
 
 
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
-
+/*
 fieldset
 {
   margin: 1em 0px;
@@ -374,10 +345,10 @@ div.accountInfo
   width: 42%;
 }
 
-
+*/
 /* MISC  
 ----------------------------------------------------------*/
-
+/*
 .clear
 {
   clear: both;
@@ -505,9 +476,11 @@ transform: scale(1.05);
 .break {
   display: none;
 }
+*/
 
 /* Specifikke elementer mobil
 ----------------------------------------------------------*/
+/* 
 @media (max-width: 600px)
 {
 #ctl00_MainContent_Button1
@@ -548,4 +521,5 @@ img {
   width: 100% !important;
   margin-bottom: 1em;
 }
-}
+
+*/

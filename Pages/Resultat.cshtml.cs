@@ -29,51 +29,53 @@ namespace Ydelsesberegner.Pages
         }
 
 
-        public const string Text1Del1 = "På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få ";
+        public const string Text1Del1 = "<p>På baggrund af de oplysninger, du har indtastet, ser det ud til, at du kan få ";
         
         
-        public const string KHText1Del2 = " kroner i kontanthjælp om måneden før skat.<br/>" +
-                    "Når du modtager kontanthjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
+        public const string KHText1Del2 = " kroner i kontanthjælp om måneden før skat.</p>" +
+                    "<p>Når du modtager kontanthjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen." +
                     "Det svarer til en timeløn på ";
 
-        public const string UYText1Del2 = " kroner i uddannelseshjælp om måneden før skat.<br/>" +
-                    "Når du modtager uddannelseshjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen.<br/>" +
+        public const string UYText1Del2 = " kroner i uddannelseshjælp om måneden før skat.</p>" +
+                    "<p>Når du modtager uddannelseshjælp skal du stå til rådighed for aktiviteter op til 37 timer om ugen." +
                     "Det svarer til en timeløn på ";
 
-         public const string SHText1Del2 = " kroner i selvforsørgelses- og hjemrejseydelse (S&H-ydelse) om måneden før skat. <br/>" +
-                    "Når du modtager selvforsørgelses- og hjemrejseydelse (S&H-ydelse) skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
+         public const string SHText1Del2 = " kroner i <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> om måneden før skat.</p>" +
+                    "<p>Når du modtager <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> skal stå til rådighed for aktiviteter op til 37 timer om ugen. <br/>" +
                     "Det svarer til en timeløn på ";
 
         public const string Text1Del3 = " kroner før skat. Det betyder, at du eksempelvis kan blive bedt om at deltage i nyttejob, hvor du skal hjælpe med at vedligeholde kommunens grønne arealer." +
-                    "<br/><br/>" +
+                    "</p>" +
 
-                    "<b> Det kan betale sig at arbejde </b><br/>" +
-                    "Vælger du i stedet at tage et job, kan du tjene flere penge i timen.<br/>" +
-                    "• Et avisbud får ca. 100 kroner i timen.<br/>" +
-                    "• En kassemedarbejder får ca. 130 kroner i timen.<br/>" +
-                    "• En faglært får ca. 200 kroner i timen.<br/><br/>";
+                    "<h3>Det kan betale sig at arbejde</h3>" +
+                    "<p>Vælger du i stedet at tage et job, kan du tjene flere penge i timen.</p>" +
+                    "<ul>" +
+                    "<li>Et avisbud får ca. 100 kroner i timen.</li>" +
+                    "<li>En kassemedarbejder får ca. 130 kroner i timen.</li>" +
+                    "<li>En faglært får ca. 200 kroner i timen.</li>" +
+                    "</ul>";
 
-        public const string KHText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </b><br/>" +
-                    "Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
+        public const string KHText1Del4 ="<h3>Så få timer om ugen skal du arbejde for at tjene det, der svarer til kontanthjælp. </h3>" +
+                    "<p>Hvis du tager et job i stedet for kontanthjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.</p>";
 
-        public const string UYText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </b><br/>" +
-                    "Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.<br/>";
+        public const string UYText1Del4 ="<h3>Så få timer om ugen skal du arbejde for at tjene det, der svarer til uddannelseshjælp </h3>" +
+                    "<p>Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.</p>";
 
-        public const string SHText1Del4 ="<b> Så få timer om ugen skal du arbejde for at tjene det, der svarer til selvforsørgelses- og hjemrejseydelse (S&H-ydelse) </b><br/>" +
-                    "Hvis du tager et job i stedet for selvforsørgelses- og hjemrejseydelse (S&H-ydelse) kan du nøjes med at arbejde færre timer, end du skal stå til rådighed <br/>";
+        public const string SHText1Del4 ="<h3>Så få timer om ugen skal du arbejde for at tjene det, der svarer til <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> </h3>" +
+                    "<p>Hvis du tager et job i stedet for <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> kan du nøjes med at arbejde færre timer, end du skal stå til rådighed </p>>";
                     
 
-        public const string KHText2 = "<br/><b> Sådan søger du kontanthjælp </b><br/>" +
-                "Du søger om kontanthjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.";
+        public const string KHText2 = "<h3>Sådan søger du kontanthjælp </h3>" +
+                "<p>Du søger om kontanthjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få kontanthjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.</p>" +
+                "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i kontanthjælp.</p>";
 
-        public const string UYText2 = "<br/><b> Sådan søger du uddannelseshjælp</b><br/>" +
-                "Du søger om uddannelseshjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
-                "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.";
+        public const string UYText2 = "<h3>Sådan søger du uddannelseshjælp</h3>" +
+                "<p>Du søger om uddannelseshjælp ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få uddannelseshjælp fra den dag, hvor du har henvendt dig, og meldt dig ledig.</p>" +
+                "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.</p>";
 
-        public const string SHText2 = "<br/><b> Sådan søger du selvforsørgelses- og hjemrejseydelse (S&H-ydelse) </b><br/>" +
-            "Du søger om selvforsørgelses- og hjemrejseydelse (S&H-ydelse) ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få selvforsørgelses- og hjemrejseydelse (S&H-ydelse) fra den dag, hvor du har henvendt dig, og meldt dig ledig.<br/><br/>" +
-            "Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i selvforsørgelses- og hjemrejseydelse (S&H-ydelse).<br/>";
+        public const string SHText2 = "<h3>Sådan søger du <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr></h3>" +
+            "<p>Du søger om selvforsørgelses- og hjemrejseydelse (S&H-ydelse) ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få selvforsørgelses- og hjemrejseydelse (S&H-ydelse) fra den dag, hvor du har henvendt dig, og meldt dig ledig.</p>" +
+            "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr>.</p>";
         
         public void OnGet()
         {
@@ -86,9 +88,8 @@ namespace Ydelsesberegner.Pages
             if (Resultat == "IkkeBerettiget")
             {
            
-                Text1 = "Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen. " +
-                "<br/>" +
-                "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.";
+                Text1 = "<p>Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen." +
+                "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.</p>";
             }
             else {
 

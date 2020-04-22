@@ -6,7 +6,8 @@
 
 <div id="2" class="text-left">
    <br/><br/><br/>
-   <h2 class="display-4">Er du EU-/EØS borger med arbejdstagerstatus i Danmark?</h2>
+   <h1>Er du EU-/EØS borger med arbejdstagerstatus i Danmark?</h1>
+   <br/>
 
            
     <form method="post">
@@ -15,11 +16,10 @@
             <input type="radio" asp-for="EUBorgerskab" value="@svar" /> @svar<br/>
         }
         <br/> 
+        <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">
         <input type="submit" value="Næste" class="btn btn-secondary"/>
     </form>
-
-    <p>
-            <br/> <br/>
-            Hvis du som EU-/EØS borger er i tvivl, om du har arbejdstagerstatus i Danmark, kan du læse mere <a href="https://www.nyidanmark.dk/da/Applying/Residence%20as%20EU%20Swiss%20or%20Nordic%20citizen/EU%20employee">her</a>.
-            <br/> <br/>
+    <br/> <br/>
+    <p>Hvis du som EU-/EØS borger er i tvivl, om du har arbejdstagerstatus i Danmark, kan du læse mere på hjemmesiden <a href="https://www.nyidanmark.dk/da/Applying/Residence%20as%20EU%20Swiss%20or%20Nordic%20citizen/EU%20employee">nyidanmark.dk</a>.
+           
     </p>

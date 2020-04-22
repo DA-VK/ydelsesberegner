@@ -6,8 +6,8 @@
 
 <div class="text-left">
    <br/><br/><br/>
-   <h2 class="display-4">Er du udeboende eller hjemmeboende?</h2>
-
+   <h1>Er du udeboende eller hjemmeboende?</h1>
+    <br/>
        
 
        
@@ -17,6 +17,7 @@
             <input type="radio" asp-for="Place" value="@svar" /> @svar<br />
         }
         <br/> 
+        <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">
         <input type="submit" value="Næste" class="btn btn-secondary"/>
     </form>
     

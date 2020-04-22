@@ -5,21 +5,20 @@
     var imagePath = "/images/Image" + Model.Image + ".png";
 }
 
-    <h2>
-    </h2>
       
     <br/>
-    <p>@Html.Raw(@Model.Text1)</p>
+    @Html.Raw(@Model.Text1)
 
     <br/>
     @if (Model != null && !String.IsNullOrEmpty(Model.Image))
-    {    <p> 
-        <img id=@Model.Image src="@imagePath" alt="Graf" Height="300" Style="border: 1px solid black;width:auto"/>
-    </p>
-    
+    {    
+        <img id=@Model.Image src="@imagePath" alt="Diagram over ugentilig arbejdstid for forskellige jobs for at opnå ydelsesniveau" Height="300" Style="border: 1px solid black;width:auto"/>
+   
+        <br/>
+        <br/>
 
     
-    <p>@Html.Raw(@Model.Text2)</p>
+        @Html.Raw(@Model.Text2)
     }
    
 
