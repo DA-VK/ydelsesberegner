@@ -62,7 +62,7 @@ namespace Ydelsesberegner.Pages
                     "<p>Hvis du tager et job i stedet for uddannelseshjælp kan du nøjes med at arbejde færre timer, end du skal stå til rådighed.</p>";
 
         public const string SHText1Del4 ="<h3>Så få timer om ugen skal du arbejde for at tjene det, der svarer til <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> </h3>" +
-                    "<p>Hvis du tager et job i stedet for <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> kan du nøjes med at arbejde færre timer, end du skal stå til rådighed </p>>";
+                    "<p>Hvis du tager et job i stedet for <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr> kan du nøjes med at arbejde færre timer, end du skal stå til rådighed </p>";
                     
 
         public const string KHText2 = "<h3>Sådan søger du kontanthjælp </h3>" +
@@ -74,8 +74,8 @@ namespace Ydelsesberegner.Pages
                 "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i uddannelseshjælp.</p>";
 
         public const string SHText2 = "<h3>Sådan søger du <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr></h3>" +
-            "<p>Du søger om selvforsørgelses- og hjemrejseydelse (S&H-ydelse) ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få selvforsørgelses- og hjemrejseydelse (S&H-ydelse) fra den dag, hvor du har henvendt dig, og meldt dig ledig.</p>" +
-            "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i <abbr title='selvforsørgelses- og hjemrejseydelse'>S&H-ydelse</abbr>.</p>";
+            "<p>Du søger om S&H-ydelse ved at møde op i Jobbutikken hos Jobcenter Vejle i Havneparken 16C. Du kan først få S&H-ydelse fra den dag, hvor du har henvendt dig, og meldt dig ledig.</p>" +
+            "<p>Det er kun i jobcenteret, du kan få den præcise beregning af, hvad du kan få i S&H-ydelse.</p>";
         
         public void OnGet()
         {
