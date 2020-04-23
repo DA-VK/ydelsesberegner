@@ -13,17 +13,25 @@ namespace Ydelsesberegner.Pages
         public string Text1 { get; set; }
         public string Text2 { get; set; }
 
+        public string ChartTitle { get; set; } 
+        public string ChartText { get; set; }
+
+
         public string Image { get; set; }
 
         
         class Udfald { 
 
-            public string mnd, time, type; 
-            public Udfald(string m, string t, string ty) 
+            public string mnd, time, type;
+            public int avis, kasse, fag;
+            public Udfald(string m, string t, string ty, int av, int ka, int fa) 
             { 
                 mnd = m; 
                 time = t;
                 type = ty;
+                avis = av;
+                kasse = ka;
+                fag = fa;
             } 
   
         }
@@ -98,20 +106,20 @@ namespace Ydelsesberegner.Pages
             Hashtable muligeUdfald = new Hashtable();
         
 
-            muligeUdfald.Add("A", new Udfald("15.355", "96", "kh"));
-            muligeUdfald.Add("B", new Udfald("11.554", "72", "kh"));
-            muligeUdfald.Add("C", new Udfald("14.677", "92", "kh"));
-            muligeUdfald.Add("D", new Udfald("10.268", "64", "kh"));
-            muligeUdfald.Add("E", new Udfald("7.448", "46", "kh"));
-            muligeUdfald.Add("F", new Udfald("3.594", "22", "kh"));
-            muligeUdfald.Add("G", new Udfald("6.331", "39", "uy"));
-            muligeUdfald.Add("H", new Udfald("2.728", "17",  "uy"));
-            muligeUdfald.Add("I", new Udfald("12.663", "79", "uy"));
-            muligeUdfald.Add("K", new Udfald("8.862", "55", "uy"));
-            muligeUdfald.Add("L", new Udfald("12.283", "77", "sh"));
-            muligeUdfald.Add("M", new Udfald("8.596", "54", "sh"));
-            muligeUdfald.Add("N", new Udfald("6.142", "38", "sh"));
-            muligeUdfald.Add("O", new Udfald("2.646", "17", "sh"));
+            muligeUdfald.Add("A", new Udfald("15.355", "96", "kh", 35, 27, 18));
+            muligeUdfald.Add("B", new Udfald("11.554", "72", "kh", 27, 21, 13));
+            muligeUdfald.Add("C", new Udfald("14.677", "92", "kh", 34, 26, 17));
+            muligeUdfald.Add("D", new Udfald("10.268", "64", "kh", 24, 18, 12));
+            muligeUdfald.Add("E", new Udfald("7.448", "46", "kh", 17, 13, 9));
+            muligeUdfald.Add("F", new Udfald("3.594", "22", "kh", 8, 6, 4));
+            muligeUdfald.Add("G", new Udfald("6.331", "39", "uy", 15, 11, 7));
+            muligeUdfald.Add("H", new Udfald("2.728", "17",  "uy", 6, 5, 3));
+            muligeUdfald.Add("I", new Udfald("12.663", "79", "uy", 29, 22, 15));
+            muligeUdfald.Add("K", new Udfald("8.862", "55", "uy", 20, 16, 10));
+            muligeUdfald.Add("L", new Udfald("12.283", "77", "sh", 28, 22, 14));
+            muligeUdfald.Add("M", new Udfald("8.596", "54", "sh", 20, 15, 10));
+            muligeUdfald.Add("N", new Udfald("6.142", "38", "sh", 14, 11, 7));
+            muligeUdfald.Add("O", new Udfald("2.646", "17", "sh", 6, 5, 3));
 
        
             //Tjekker i hashtable hvilket udfald det er pga af resultatet fra queryString, og henter de relevante data:
@@ -120,6 +128,10 @@ namespace Ydelsesberegner.Pages
             string ydelsesType = aktueltUdfald.type;
             string ydelseMnd = aktueltUdfald.mnd;
             string ydelseTime = aktueltUdfald.time;
+            
+            int timerAvis = aktueltUdfald.avis;
+            int timerKasse = aktueltUdfald.kasse;
+            int timerFag = aktueltUdfald.fag;
 
             
 
@@ -129,21 +141,52 @@ namespace Ydelsesberegner.Pages
                 case "kh": //Kontanthjælp
                     Text1 = Text1Del1 + ydelseMnd + KHText1Del2 + ydelseTime + Text1Del3 + KHText1Del4;
                     Text2 = KHText2;
+                    ChartTitle = "Kontanthjælp " + ydelseMnd + " kr./mnd";
+                    ChartText = "Diagrammet viser at du blot skal arbejde " +
+                                    timerAvis.ToString() +
+                                    " timer som avisbud, " +
+                                    timerKasse.ToString() +
+                                    " timer som kassemedarbejder, eller "+
+                                    timerFag.ToString() +
+                                    " timer som faglært, for at tjene det der svarer til" +
+                                    " kontanthjælpsydelsen" +
+                                    ", hvor du skal stå til rådighed i 37 timer.";
                     break;
 
                 case "uy": //Uddannelsesydelse
                     Text1 = Text1Del1 + ydelseMnd + UYText1Del2 + ydelseTime + Text1Del3 + UYText1Del4;
-                    Text2 = UYText2; 
+                    Text2 = UYText2;
+                    ChartTitle = "Uddannelseshjælp " + ydelseMnd + " kr./mnd";
+                    ChartText = "Diagrammet viser at du blot skal arbejde " +
+                            timerAvis.ToString() +
+                            " timer som avisbud, " +
+                            timerKasse.ToString() +
+                            " timer som kassemedarbejder, eller "+
+                            timerFag.ToString() +
+                            " timer som faglært, for at tjene det der svarer til" +
+                            " uddannelseshjælpen" +
+                            ", hvor du skal stå til rådighed i 37 timer.";
                     break;
 
                 case "sh": //selvforsørgelses- og hjemrejseydelse (S&H-ydelse)
                     Text1 = Text1Del1 + ydelseMnd + SHText1Del2 + ydelseTime + Text1Del3 + SHText1Del4;
-                    Text2 = SHText2; 
+                    Text2 = SHText2;
+                    ChartTitle = "S&H-ydelse " + ydelseMnd + " kr./mnd";
+                    ChartText = "Diagrammet viser at du blot skal arbejde " +
+                            timerAvis.ToString() +
+                            " timer som avisbud, " +
+                            timerKasse.ToString() +
+                            " timer som kassemedarbejder, eller "+
+                            timerFag.ToString() +
+                            " timer som faglært, for at tjene det der svarer til" +
+                            " S&H-ydelsen" +
+                            ", hvor du skal stå til rådighed i 37 timer.";
                     break;
 
             }
 
             Image = Resultat;
+            
             
             }
             

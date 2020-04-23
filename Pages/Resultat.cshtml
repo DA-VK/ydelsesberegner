@@ -12,8 +12,11 @@
     <br/>
     @if (Model != null && !String.IsNullOrEmpty(Model.Image))
     {    
-        <img id=@Model.Image src="@imagePath" alt="Diagram over ugentilig arbejdstid for forskellige jobs for at opnå ydelsesniveau" Height="300" Style="border: 1px solid black;width:auto"/>
-   
+        <div class="w-75 p-3">
+        <h4>@Model.ChartTitle</h4>
+        <img id=@Model.Image class="img-fluid" src="@imagePath" alt="Diagram over ugentlig arbejdstid for forskellige jobs for at opnå ydelsesniveau"/>
+        <p><small>@Model.ChartText</small></p>
+        </div>
         <br/>
         <br/>
 
