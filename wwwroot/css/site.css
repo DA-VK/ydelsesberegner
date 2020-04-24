@@ -49,6 +49,10 @@ font-style: normal;
 margin-bottom: 0px;
 }
 
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+  background-color: #8EB73C !important;
+}
+
 
 /* HEADINGS   
 ----------------------------------------------------------*/
