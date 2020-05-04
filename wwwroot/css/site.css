@@ -3,15 +3,27 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* DEFAULTS
 ----------------------------------------------------------*/
-
+/*
 @font-face {
   font-family: conduit-itc-w01;
   src: url(../fonts/conduit-itc-light-italic-58be763822c34.ttf);
 }
+*/
+
+
+@font-face {
+  font-family: Kontrapunkt-Light;
+  src: url(../fonts/Kontrapunkt-Light.otf);
+}
+
+@font-face {
+  font-family: orienta-regular;
+  src: url(../fonts/orienta-regular.ttf);
+}
 
 body   
 {
-  font-family: "arial", serif;;
+  font-family: orienta-regular, "arial", sans-serif;;
   margin: 0px;
   padding: 0px;
   color: #292929;
@@ -36,7 +48,7 @@ a:active
 p
 {
   margin-bottom: 10px;
-  font-family: "arial",serif;
+  font-family: orienta-regular, arial, serif;
 }
 
 
@@ -59,7 +71,7 @@ margin-bottom: 0px;
 
 h1, h2, h3, h4, h5, h6
 {
-  font-family: "conduit-itc-w01",serif;
+  font-family: "Kontrapunkt-Light", serif;
 
 
   color: #292929;
@@ -74,7 +86,7 @@ h1
 {
  
   font-weight: 100;
-  font-family: "conduit-itc-w01",serif;
+
 }
   
 h3
