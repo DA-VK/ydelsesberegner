@@ -15,7 +15,8 @@
     <form method="post">
         @foreach (var svar in Model.OpholdSvar)
         {
-            <input type="radio" asp-for="Ophold" value="@svar" /> @svar<br />
+             <label><input type="radio" asp-for="Ophold" id="Ophold@(svar)" value="@svar" />@svar</label>
+            <br/>
         }
         <br/> 
         <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">

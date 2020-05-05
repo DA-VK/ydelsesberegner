@@ -9,13 +9,7 @@
    <h1>Er du gift?</h1>
    <br/>
 
-        @*
-        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
-            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
-        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
-        <br class="break" />
-        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
-         *@
+     
         
     
 
@@ -23,7 +17,8 @@
     <form method="post">
         @foreach (var civilstand in Model.Civilstande)
         {
-            <input type="radio" asp-for="Civilstand" value="@civilstand" /> @civilstand<br />
+             <label><input type="radio" asp-for="Civilstand" id="Civilstand@(civilstand)" value="@civilstand" />@civilstand</label>
+            <br/>
         }
         <br/> 
     

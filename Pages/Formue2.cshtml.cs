@@ -10,7 +10,7 @@ namespace Ydelsesberegner.Pages
     public class Formue2Model : PageModel
     {
         [BindProperty]
-         public string Formue { get; set; }
+         public string Formue2 { get; set; }
 
          public string[] Formue2Svar = new[] { "Ja", "Nej" };
 
@@ -20,10 +20,10 @@ namespace Ydelsesberegner.Pages
 
         public void OnPost()
         {
-            if(Formue == "Ja"){
+            if(Formue2 == "Ja"){
                 Response.Redirect("Resultat" + "?Name=IkkeBerettiget");
                 
-            }else if(Formue == "Nej"){
+            }else if(Formue2 == "Nej"){
                 Response.Redirect("EUBorgerskab");
             }
         }

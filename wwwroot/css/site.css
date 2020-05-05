@@ -62,9 +62,13 @@ margin-bottom: 0px;
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
-  background-color: #8EB73C !important;
+  background-color:rgba(142,183,60,0.9) !important;
 }
 
+input[type="radio"] 
+{
+    margin-right: 7px;
+}
 
 /* HEADINGS   
 ----------------------------------------------------------*/

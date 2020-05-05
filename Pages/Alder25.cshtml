@@ -12,7 +12,8 @@
     <form method="post">
         @foreach (var svar in Model.Alder25Svar)
         {
-            <input type="radio" asp-for="Alder25" value="@svar" /> @svar<br/>
+             <label><input type="radio" asp-for="Alder25" id="Alder25@(svar)" value="@svar" />@svar</label>
+            <br/>
         }
         <br/>
         <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">

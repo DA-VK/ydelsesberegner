@@ -9,13 +9,6 @@
    <h1>Har du en erhvervskompetencegivende uddannelse? </h1>
    <br/>
 
-        @*
-        <%-- Laver "Ja" og "Nej" knapper. Definerer ID og GroupName attributterne.
-            "GroupName" er det samme så kun en af knapperne kan være checked ad gangen --%>
-        <asp:RadioButton ID="RadioButton9" runat="server" GroupName="Formue" Text="Ja" /> <br/>
-        <br class="break" />
-        <asp:RadioButton ID="RadioButton10" runat="server" GroupName="Formue" Text="Nej" />
-         *@
         
     
 
@@ -23,7 +16,8 @@
     <form method="post">
         @foreach (var svar in Model.UddannelseSvar)
         {
-            <input type="radio" asp-for="Uddannelse" value="@svar" /> @svar<br />
+             <label><input type="radio" asp-for="Uddannelse" id="Uddannelse@(svar)" value="@svar" />@svar</label>
+            <br/>
         }
         <br/> 
         <input type="button" value="Tilbage" onclick="history.back()" class="btn btn-secondary">
