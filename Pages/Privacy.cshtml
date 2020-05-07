@@ -1,0 +1,19 @@
+@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Cookies";
+}
+
+<h1>Cookies</h1>
+
+<p>Der sættes en cookie i din browser, der forhindrer cross-site scripting, samt en cookie,
+     der husker din cookie-accept, så du ikke skal acceptere igen, hver gang du har trykket næste.</p>
+
+     <p>Du kan læse mere om <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">cross-site scripting på Wikipedia.</a></p>
+
+    <form method="post">
+       
+        <button type="button" onclick="history.back()" class="btn btn-secondary"><span aria-hidden="true">Tilbage</span>
+        </button>
+  
+    </form>
