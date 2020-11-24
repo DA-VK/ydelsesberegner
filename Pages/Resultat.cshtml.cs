@@ -96,7 +96,7 @@ namespace Ydelsesberegner.Pages
             if (Resultat == "IkkeBerettiget")
             {
            
-                Text1 = "<p>Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen." +
+                Text1 = "<p>Ud fra dine oplysninger er du ikke berettiget til at modtage økonomisk hjælp fra kommunen. " +
                 "Denne vurdering er vejledende. I Jobcenter Vejle kan vi hjælpe dig med en endelig vurdering.</p>";
             }
             else {
