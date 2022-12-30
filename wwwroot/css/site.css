@@ -3,27 +3,19 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* DEFAULTS
 ----------------------------------------------------------*/
-/*
-@font-face {
-  font-family: conduit-itc-w01;
-  src: url(../fonts/conduit-itc-light-italic-58be763822c34.ttf);
-}
-*/
-
 
 @font-face {
-  font-family: Kontrapunkt-Light;
-  src: url(../fonts/Kontrapunkt-Light.otf);
-}
-
-@font-face {
-  font-family: orienta-regular;
-  src: url(../fonts/orienta-regular.ttf);
+  font-family: K2D;
+  src: url(../fonts/K2D-Regular.ttf);
 }
 
 body   
 {
-  font-family: orienta-regular, "arial", sans-serif;;
+  background-image: url('../images/Horisontlinje\ Bordeaux.png'), url('../images/Samlet\ logo_Bordeaux.png');
+  background-position: center bottom, right top;
+  background-attachment: fixed;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100%, 13%;
   margin: 0px;
   padding: 0px;
   color: #292929;
@@ -48,13 +40,12 @@ a:active
 p
 {
   margin-bottom: 10px;
-  font-family: orienta-regular, arial, serif;
+  font-family: K2D, arial, serif;
 }
-
 
 #ctl00_MainContent_Label1 strong
 {
-font-family: arial, serif;
+font-family: K2D, arial, serif;
 font-size: 17px;
 font-weight: 600;
 font-style: normal;
@@ -70,17 +61,14 @@ input[type="radio"]
     margin-right: 7px;
 }
 
+
 /* HEADINGS   
 ----------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6
 {
-  font-family: "Kontrapunkt-Light", serif;
-
-
+  font-family: K2D, serif;
   color: #292929;
-  /*font-variant: small-caps;*/
-  
   text-transform: none;
   font-weight: 200;
   margin-bottom: 0px;
@@ -88,17 +76,23 @@ h1, h2, h3, h4, h5, h6
  
 h1
 {
- 
   font-weight: 100;
-
 }
   
 h3
 {
-
   font-weight: 100;
 }
 
+h4
+{
+  text-align: center;
+}
+
+.container
+{
+  margin-bottom: 250px;
+}
 
 /* this rule styles <h1> and <h2> tags that are the 
 first child of the left and right table columns */
@@ -106,6 +100,42 @@ first child of the left and right table columns */
 {
   margin-top: 0px;
 }
+
+footer
+{
+  width: 100%;
+  color: #4e5766;
+  padding: 8px 0px 0px 0px;
+  text-align: center;
+  line-height: normal;
+}
+
+.flex-wrapper
+{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-important
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.important
+{
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 50%;
+  border-radius: 25px;
+  border: 2px solid #23356e;
+  padding: 20px;
+}
+
 
 
 /* PRIMARY LAYOUT ELEMENTS   
@@ -255,14 +285,7 @@ font-family: "arial",serif;
   min-height: 200px;
 }
 
-.footer
-{
-  color: #4e5766;
-  padding: 8px 0px 0px 0px;
-  margin: 0px auto;
-  text-align: center;
-  line-height: normal;
-}
+
 */
 
 /* TAB MENU   
@@ -536,10 +559,6 @@ float: left;
   display: block;
 }
 
-img {
-  height: auto !important;
-  width: 100% !important;
-  margin-bottom: 1em;
-}
+
 
 */
