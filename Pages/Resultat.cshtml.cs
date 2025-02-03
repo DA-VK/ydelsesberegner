@@ -59,9 +59,9 @@ namespace Ydelsesberegner.Pages
                     "<h3>Det kan betale sig at arbejde!</h3>" +
                     "<p>Vælger du i stedet at tage et job, kan du tjene flere penge i timen.</p>" +
                     "<ul>" +
-                    "<li>Et avisbud får ca. 115 kroner i timen.</li>" +
+                    "<li>Et avisbud får ca. 125 kroner i timen.</li>" +
                     "<li>En kassemedarbejder får ca. 130 kroner i timen.</li>" +
-                    "<li>En faglært får ca. 200 kroner i timen.</li>" +
+                    "<li>En faglært får ca. 250 kroner i timen.</li>" +
                     "</ul>" +
                     "</div>" +
                     "</div>";
@@ -109,20 +109,21 @@ namespace Ydelsesberegner.Pages
             Hashtable muligeUdfald = new Hashtable();
         
 
-            muligeUdfald.Add("A", new Udfald("15.874", "96", "kh", 32, 28, 18));
-            muligeUdfald.Add("B", new Udfald("11.944", "72", "kh", 24, 21, 14));
-            muligeUdfald.Add("C", new Udfald("15.172", "92", "kh", 30, 27, 18));
-            muligeUdfald.Add("D", new Udfald("10.615", "64", "kh", 21, 19, 12));
-            muligeUdfald.Add("E", new Udfald("7.699", "46", "kh", 15, 14, 9));
-            muligeUdfald.Add("F", new Udfald("3.715", "22", "kh", 7, 7, 4));
-            muligeUdfald.Add("G", new Udfald("6.545", "39", "uy", 13, 12, 8));
-            muligeUdfald.Add("H", new Udfald("2.820", "17",  "uy", 6, 5, 3));
-            muligeUdfald.Add("I", new Udfald("13.090", "79", "uy", 26, 23, 15));
-            muligeUdfald.Add("K", new Udfald("9.161", "55", "uy", 18, 16, 11));
-            muligeUdfald.Add("L", new Udfald("12.699", "79", "sh", 25, 23, 15));
-            muligeUdfald.Add("M", new Udfald("8.886", "55", "sh", 18, 16, 10));
-            muligeUdfald.Add("N", new Udfald("6.350", "40", "sh", 13, 11, 7));
-            muligeUdfald.Add("O", new Udfald("2.735", "17", "sh", 5, 4, 3));
+            muligeUdfald.Add("A", new Udfald("16.972", "115", "kh", 34, 33, 17));
+            muligeUdfald.Add("B", new Udfald("12.770", "86", "kh", 26, 25, 13));
+            muligeUdfald.Add("C", new Udfald("16.222", "110", "kh", 32, 31, 16));
+            muligeUdfald.Add("D", new Udfald("11.349", "77", "kh", 23, 22, 11));
+            muligeUdfald.Add("E", new Udfald("8.231", "56", "kh", 16, 16, 8));
+            muligeUdfald.Add("F", new Udfald("3.972", "27", "kh", 8, 8, 4));
+            muligeUdfald.Add("G", new Udfald("6.754", "46", "uy", 14, 13, 7));
+            muligeUdfald.Add("H", new Udfald("3.015", "20", "uy", 6, 6, 3));
+            muligeUdfald.Add("I", new Udfald("13.995", "95", "uy", 28, 27, 14));
+            muligeUdfald.Add("K", new Udfald("9.794", "66", "uy", 20, 19, 10));
+            muligeUdfald.Add("L", new Udfald("13.577", "92", "sh", 27, 26, 14));
+            muligeUdfald.Add("M", new Udfald("9.500", "64", "sh", 19, 18, 10));
+            muligeUdfald.Add("N", new Udfald("6.789", "46", "sh", 14, 13, 7));
+            muligeUdfald.Add("O", new Udfald("2.925", "20", "sh", 6, 6, 3));
+
 
        
             //Tjekker i hashtable hvilket udfald det er pga af resultatet fra queryString, og henter de relevante data:
